@@ -66,7 +66,7 @@ function Skills() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center text-green-400"
+          className="text-5xl font-bold mb-12 text-center text-purple-400"
         >
           Skills
         </motion.h2>
@@ -81,7 +81,7 @@ function Skills() {
               onClick={() => setActiveCategory(category)}
               className={`px-6 py-3 rounded-lg text-lg font-semibold transition-colors ${
                 activeCategory === category
-                  ? 'bg-green-400 text-black'
+                  ? 'bg-purple-400 text-black'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >
@@ -116,7 +116,7 @@ function SkillCard({ name, icon, level }) {
       className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center text-center"
     >
       {/* Icon */}
-      <div className="text-5xl text-green-400 mb-4">{icon}</div>
+      <div className="text-5xl text-purple-400 mb-4">{icon}</div>
 
       {/* Skill Name */}
       <h3 className="text-xl font-semibold text-gray-300 mb-2">{name}</h3>
@@ -128,3 +128,4 @@ function SkillCard({ name, icon, level }) {
 }
 
 export default Skills;
+

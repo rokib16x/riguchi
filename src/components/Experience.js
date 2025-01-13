@@ -67,7 +67,7 @@ function Experience() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center text-green-400"
+          className="text-5xl font-bold mb-12 text-center text-purple-400"
         >
           Work Experience
         </motion.h2>
@@ -95,14 +95,14 @@ function ExperienceCard({ title, company, period, description, achievements, ind
       initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.2 }}
-      className="relative pl-8 border-l-2 border-green-400"
+      className="relative pl-8 border-l-2 border-purple-400"
     >
       {/* Timeline Dot */}
-      <div className="absolute left-[-10px] top-0 w-5 h-5 bg-green-400 rounded-full" />
+      <div className="absolute left-[-10px] top-0 w-5 h-5 bg-purple-400 rounded-full" />
 
       {/* Content */}
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
-        <h3 className="text-2xl font-bold text-green-400">{title}</h3>
+        <h3 className="text-2xl font-bold text-purple-400">{title}</h3>
         <p className="text-gray-400">{company}</p>
         <p className="text-gray-400 text-sm mb-4">{period}</p>
         <p className="text-gray-300 mb-4">{description}</p>
@@ -111,7 +111,7 @@ function ExperienceCard({ title, company, period, description, achievements, ind
         <ul className="space-y-2">
           {achievements.map((achievement, i) => (
             <li key={i} className="flex items-start space-x-2">
-              <span className="text-green-400">✔</span>
+              <span className="text-purple-400">✔</span>
               <span className="text-gray-300">{achievement}</span>
             </li>
           ))}
@@ -122,3 +122,4 @@ function ExperienceCard({ title, company, period, description, achievements, ind
 }
 
 export default Experience;
+

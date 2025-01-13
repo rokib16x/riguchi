@@ -9,7 +9,7 @@ function Hero() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-green-400 text-xl mb-2"
+            className="text-purple-400 text-xl mb-2"
           >
             Hey there! I'm-
           </motion.p>
@@ -49,7 +49,7 @@ function Hero() {
           className="flex-1 flex justify-end"
         >
           <img
-            src="/profile-image.png" // Path to your image in the public folder
+            src="/profile-image.png"
             alt="Ryan Iguchi"
             className="w-96 h-96 rounded-full object-cover shadow-lg"
           />
@@ -75,3 +75,4 @@ function SocialLink({ href, icon }) {
 }
 
 export default Hero;
+

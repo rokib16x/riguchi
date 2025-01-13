@@ -15,7 +15,7 @@ function About() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center text-green-400"
+          className="text-5xl font-bold mb-12 text-center text-purple-400"
         >
           About Me
         </motion.h2>
@@ -30,7 +30,7 @@ function About() {
         >
           {/* Introduction */}
           <p className="text-xl text-gray-300 leading-relaxed">
-            I'm <span className="text-green-400 font-semibold">Ryan Iguchi</span>, a <span className="text-green-400 font-semibold">Product Manager</span> and <span className="text-green-400 font-semibold">Software Engineer</span> with over a decade of experience bridging technical expertise and business strategy. I've been passionate about technology since an early age, and I've turned that passion into a successful career.
+            I'm <span className="text-purple-400 font-semibold">Ryan Iguchi</span>, a <span className="text-purple-400 font-semibold">Product Manager</span> and <span className="text-purple-400 font-semibold">Software Engineer</span> with over a decade of experience bridging technical expertise and business strategy. I've been passionate about technology since an early age, and I've turned that passion into a successful career.
           </p>
 
           {/* Journey */}
@@ -40,26 +40,26 @@ function About() {
 
           {/* Specializations */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-green-400">What I Specialize In</h3>
+            <h3 className="text-3xl font-bold text-purple-400">What I Specialize In</h3>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <li className="flex items-start space-x-4">
-                <span className="text-green-400 text-2xl">✔</span>
+                <span className="text-purple-400 text-2xl">✔</span>
                 <span className="text-xl text-gray-300">Full product lifecycle management</span>
               </li>
               <li className="flex items-start space-x-4">
-                <span className="text-green-400 text-2xl">✔</span>
+                <span className="text-purple-400 text-2xl">✔</span>
                 <span className="text-xl text-gray-300">Agile methodologies (Certified Scrum Master and Product Owner)</span>
               </li>
               <li className="flex items-start space-x-4">
-                <span className="text-green-400 text-2xl">✔</span>
+                <span className="text-purple-400 text-2xl">✔</span>
                 <span className="text-xl text-gray-300">Web development (React, Vue.js, Node.js)</span>
               </li>
               <li className="flex items-start space-x-4">
-                <span className="text-green-400 text-2xl">✔</span>
+                <span className="text-purple-400 text-2xl">✔</span>
                 <span className="text-xl text-gray-300">DevOps and cloud architecture</span>
               </li>
               <li className="flex items-start space-x-4">
-                <span className="text-green-400 text-2xl">✔</span>
+                <span className="text-purple-400 text-2xl">✔</span>
                 <span className="text-xl text-gray-300">Cybersecurity (CISSP Candidate)</span>
               </li>
             </ul>
@@ -79,3 +79,4 @@ function About() {
 }
 
 export default About;
+

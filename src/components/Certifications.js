@@ -76,3 +76,4 @@ function CertificationCard({ title, issuer, date, index }) {
 }
 
 export default Certifications;
+
