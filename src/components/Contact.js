@@ -1,40 +1,42 @@
-import { motion } from 'framer-motion'
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 function Contact() {
   return (
-    <div className="py-20 px-6 text-center">
+    <section id="contact" className="py-20 px-6 text-center">
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="text-4xl font-bold mb-6"
+        className="text-5xl font-bold mb-6 text-tertiary"
       >
-        Keep In Touch.
+        Let's Connect
       </motion.h2>
       <motion.p
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mb-8"
+        className="mb-8 text-secondary text-xl"
       >
-        I'm currently specializing in <span className="text-green-400">Front-end Development</span>.
+        I'm always open to new opportunities and collaborations.
         <br />
-        Feel free to get in touch and talk more about your projects.
+        Feel free to reach out and let's create something amazing together!
       </motion.p>
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
-        className="flex justify-center gap-4"
+        className="flex justify-center gap-6"
       >
-        <ContactButton href="https://linkedin.com" text="LinkedIn" />
-        <ContactButton href="mailto:ryan@netdevs.net" text="Email" />
-        <ContactButton href="/resume.pdf" text="Resume" />
+        <ContactButton href="https://linkedin.com/in/yourusername" icon={<FaLinkedin />} text="LinkedIn" />
+        <ContactButton href="https://github.com/yourusername" icon={<FaGithub />} text="GitHub" />
+        <ContactButton href="mailto:ryan@netdevs.net" icon={<FaEnvelope />} text="Email" />
       </motion.div>
-    </div>
-  )
+    </section>
+  );
 }
 
-function ContactButton({ href, text }) {
+function ContactButton({ href, icon, text }) {
   return (
     <motion.a
       href={href}
@@ -42,12 +44,13 @@ function ContactButton({ href, text }) {
       rel="noopener noreferrer"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="bg-gray-800 px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors"
+      className="flex items-center gap-2 bg-tertiary/10 hover:bg-tertiary/20 text-tertiary px-6 py-3 rounded-lg transition-colors"
     >
+      {icon}
       {text}
     </motion.a>
-  )
+  );
 }
 
-export default Contact
+export default Contact;
 

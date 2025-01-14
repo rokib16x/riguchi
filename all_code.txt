@@ -1,0 +1,908 @@
+
+// --- D:\Personal works\riguchi\src\App.js ---
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Skills from './components/Skills';
+import Experience from './components/Experience';
+import Certifications from './components/Certifications';
+import Resume from './components/Resume';
+import Contact from './components/Contact';
+
+function App() {
+  return (
+    <div className="min-h-screen relative font-sans">
+      <Helmet>
+        <title>Ryan Iguchi - Product Manager & Software Engineer</title>
+        <meta name="description" content="Portfolio of Ryan Iguchi, a Product Manager and Software Engineer with over a decade of experience in bridging technical expertise and business strategy." />
+        <meta name="theme-color" content="#8B2FBE" />
+      </Helmet>
+      
+      {/* Content overlay with slight darkening for better text readability */}
+      <div className="relative z-10 min-h-screen bg-black/20">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Certifications />
+        <Resume />
+        <Contact />
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\About.js ---
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+function About() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  return (
+    <section id="about" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-bold mb-12 text-center text-tertiary"
+        >
+          About Me
+        </motion.h2>
+
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="space-y-8 text-secondary"
+        >
+          <p className="text-xl leading-relaxed">
+            I'm <span className="text-primary font-semibold">Ryan Iguchi</span>, a <span className="text-primary font-semibold">Product Manager</span> and <span className="text-primary font-semibold">Software Engineer</span> with over a decade of experience bridging technical expertise and business strategy. I've been passionate about technology since an early age, and I've turned that passion into a successful career.
+          </p>
+
+          <p className="text-xl leading-relaxed">
+            My journey in tech started with building projects using no-code tools back in 2010. From there, I dove into programming, exploring various languages and technologies. This exploration led me to work in diverse roles, from web development to leading IT departments.
+          </p>
+
+          <div className="space-y-6">
+            <h3 className="text-3xl font-bold text-primary">What I Specialize In</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {['Full product lifecycle management', 'Agile methodologies (Certified Scrum Master and Product Owner)', 'Web development (React, Vue.js, Node.js)', 'DevOps and cloud architecture', 'Cybersecurity (CISSP Candidate)'].map((item, index) => (
+                <li key={index} className="flex items-start space-x-4">
+                  <span className="text-primary text-2xl">✔</span>
+                  <span className="text-xl">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="text-xl leading-relaxed">
+            I'm deeply interested in building innovative solutions that solve real-world problems. My focus is on creating user-centric products while ensuring they're secure, scalable, and aligned with business objectives.
+          </p>
+          <p className="text-xl leading-relaxed">
+            When I'm not coding or managing products, I enjoy staying updated with the latest tech trends, contributing to open-source projects, and mentoring aspiring developers.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export default About;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\Certifications.js ---
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+function Certifications() {
+  const certifications = [
+    {
+      title: "Professional Scrum Master (PSM)",
+      issuer: "Scrum.org",
+      date: "Mar 2024",
+    },
+    {
+      title: "Professional Scrum Product Owner (PSPO)",
+      issuer: "Scrum.org",
+      date: "Apr 2024",
+    },
+    {
+      title: "Certified in Cybersecurity (CC)",
+      issuer: "ISC2",
+      date: "Sept 2023",
+    },
+    {
+      title: "Cybersecurity Professional",
+      issuer: "Cal State Long Beach",
+      date: "Aug 2023",
+    },
+    {
+      title: "Security+ Certified",
+      issuer: "CompTIA",
+      date: "May 2024",
+    },
+    {
+      title: "Cybersecurity, Identity & Compliance",
+      issuer: "Microsoft",
+      date: "Dec 2023",
+    },
+  ];
+
+  return (
+    <section id="certifications" className="py-20 px-6">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="text-5xl font-bold mb-12 text-center text-tertiary"
+      >
+        Certifications
+      </motion.h2>
+      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        {certifications.map((certification, index) => (
+          <CertificationCard key={index} {...certification} index={index} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function CertificationCard({ title, issuer, date, index }) {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      className="bg-tertiary/10 p-6 rounded-lg hover:bg-tertiary/20 transition-colors"
+    >
+      <h3 className="text-2xl font-bold mb-2 text-primary">{title}</h3>
+      <p className="text-tertiary">{issuer}</p>
+      <p className="text-secondary">{date}</p>
+    </motion.div>
+  );
+}
+
+export default Certifications;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\Contact.js ---
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+
+function Contact() {
+  return (
+    <section id="contact" className="py-20 px-6 text-center">
+      <motion.h2
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        className="text-5xl font-bold mb-6 text-tertiary"
+      >
+        Let's Connect
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2 }}
+        className="mb-8 text-secondary text-xl"
+      >
+        I'm always open to new opportunities and collaborations.
+        <br />
+        Feel free to reach out and let's create something amazing together!
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.4 }}
+        className="flex justify-center gap-6"
+      >
+        <ContactButton href="https://linkedin.com/in/yourusername" icon={<FaLinkedin />} text="LinkedIn" />
+        <ContactButton href="https://github.com/yourusername" icon={<FaGithub />} text="GitHub" />
+        <ContactButton href="mailto:ryan@netdevs.net" icon={<FaEnvelope />} text="Email" />
+      </motion.div>
+    </section>
+  );
+}
+
+function ContactButton({ href, icon, text }) {
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="flex items-center gap-2 bg-tertiary/10 hover:bg-tertiary/20 text-tertiary px-6 py-3 rounded-lg transition-colors"
+    >
+      {icon}
+      {text}
+    </motion.a>
+  );
+}
+
+export default Contact;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\Experience.js ---
+import React from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+
+function Experience() {
+  const experiences = [
+    {
+      title: "Product Manager",
+      company: "HomeBuilder.app",
+      period: "02/2023 - 02/2024",
+      description: "Led end-to-end product development of modern web applications for builders, architects, and specialty contractors.",
+      achievements: [
+        "Achieved perfect Google PageSpeed scores for performance, accessibility, best practices, and SEO.",
+        "Migrated DevOps to AWS, implementing automated deployment pipelines.",
+        "Architected scalable frontend solutions using Module Federation.",
+      ],
+    },
+    {
+      title: "Head of IT",
+      company: "Maria's Place",
+      period: "01/2021 - 12/2023",
+      description: "Spearheaded secure software development lifecycle (SDLC) initiatives and multi-channel technology stack integration.",
+      achievements: [
+        "Developed an MVP iOS app with secure audio chat rooms, focusing on ADA accessibility.",
+        "Integrated eCommerce, CRM, and WMS systems through RESTful APIs.",
+        "Led DevOps modernization, including Private GitHub migration and SSO implementation.",
+      ],
+    },
+    {
+      title: "Project Manager & UX Director",
+      company: "WP Superheroes",
+      period: "05/2017 - 06/2023",
+      description: "Managed multiple projects using Agile/Scrum methodology, leading development teams and improving UX.",
+      achievements: [
+        "Directed UX improvements, resulting in enhanced user engagement and client satisfaction.",
+        "Constructed and secured hacked WordPress sites.",
+        "Built complex projects using Agile/Scrum project management.",
+      ],
+    },
+    {
+      title: "Web Software Developer",
+      company: "Maria's Place",
+      period: "07/2014 - 12/2020",
+      description: "Built and scaled a membership platform serving 10,000+ users with features like porous paywalls and eCommerce subscriptions.",
+      achievements: [
+        "Implemented PII data management systems ensuring compliance with security standards.",
+        "Developed responsive frontend solutions with a focus on user experience and performance optimization.",
+        "Trained teams in custom web development practices.",
+      ],
+    },
+  ];
+
+  return (
+    <section id="experience" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-bold mb-12 text-center text-tertiary"
+        >
+          Work Experience
+        </motion.h2>
+
+        <div className="space-y-12">
+          {experiences.map((experience, index) => (
+            <ExperienceCard key={index} {...experience} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ExperienceCard({ title, company, period, description, achievements, index }) {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+      animate={inView ? { opacity: 1, x: 0 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.2 }}
+      className="relative pl-8 border-l-2 border-primary"
+    >
+      <div className="absolute left-[-10px] top-0 w-5 h-5 bg-primary rounded-full" />
+
+      <div className="bg-tertiary/10 p-6 rounded-lg shadow-lg">
+        <h3 className="text-2xl font-bold text-primary">{title}</h3>
+        <p className="text-tertiary">{company}</p>
+        <p className="text-secondary text-sm mb-4">{period}</p>
+        <p className="text-secondary mb-4">{description}</p>
+
+        <ul className="space-y-2">
+          {achievements.map((achievement, i) => (
+            <li key={i} className="flex items-start space-x-2">
+              <span className="text-primary">✔</span>
+              <span className="text-secondary">{achievement}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
+  );
+}
+
+export default Experience;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\Hero.js ---
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+
+function Hero() {
+  return (
+    <div id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between">
+        <div className="flex-1 text-center md:text-left">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-mono text-text-accent text-xl mb-2"
+          >
+            Hey there! I'm-
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-6xl font-bold mb-4 text-text-primary tracking-tight"
+          >
+            Ryan Iguchi.
+          </motion.h1>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="text-3xl text-text-secondary font-medium mb-6"
+          >
+            Product Manager & Software Engineer
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="flex justify-center md:justify-start gap-4"
+          >
+            <SocialLink href="https://github.com" icon={<FaGithub />} />
+            <SocialLink href="https://linkedin.com" icon={<FaLinkedin />} />
+            <SocialLink href="mailto:ryan@netdevs.net" icon={<FaEnvelope />} />
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.8 }}
+          className="flex-1 flex justify-center md:justify-end mt-8 md:mt-0"
+        >
+          <img
+            src="/profile-image.png"
+            alt="Ryan Iguchi"
+            className="w-64 h-64 md:w-96 md:h-96 rounded-full object-cover shadow-lg"
+          />
+        </motion.div>
+      </div>
+    </div>
+  );
+}
+
+function SocialLink({ href, icon }) {
+  return (
+    <motion.a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-colors text-text-primary text-2xl backdrop-blur-sm"
+    >
+      {icon}
+    </motion.a>
+  );
+}
+
+export default Hero;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\Navbar.js ---
+import React from 'react';
+import { motion } from 'framer-motion';
+
+function Navbar() {
+  return (
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className="fixed w-full px-6 py-4 flex justify-between items-center bg-background-end/80 backdrop-blur-sm z-50"
+    >
+      <motion.div
+        whileHover={{ scale: 1.1 }}
+        className="text-2xl font-bold text-pink-500" // Added text-pink-500 for pinkish color
+      >
+        {'{R.I}'}
+      </motion.div>
+      <div className="flex gap-6">
+        <NavLink href="#home">Home</NavLink>
+        <NavLink href="#about">About</NavLink>
+        <NavLink href="#skills">Skills</NavLink>
+        <NavLink href="#experience">Experience</NavLink>
+        <NavLink href="#resume">Resume</NavLink>
+        <NavLink href="#contact">Contact</NavLink>
+      </div>
+    </motion.nav>
+  );
+}
+
+function NavLink({ href, children }) {
+  return (
+    <motion.a
+      href={href}
+      whileHover={{ scale: 1.1 }}
+      className="text-text-primary hover:text-text-accent transition-colors"
+    >
+      {children}
+    </motion.a>
+  );
+}
+
+export default Navbar;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\Resume.js ---
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FileText, Download, Eye } from 'lucide-react';
+
+const resumes = [
+  {
+    title: 'Software Engineer',
+    description: 'Technical focus on web development and system architecture',
+    file: '/RYAN IGUCHI_Software_Engineer.pdf'
+  },
+  {
+    title: 'Product Manager',
+    description: 'Emphasis on product strategy and team leadership',
+    file: '/RYAN IGUCHI_Product_Manager.pdf'
+  },
+  {
+    title: 'IT Support',
+    description: 'Focus on IT and compliance',
+    file: '/RYAN IGUCHI_IT Support.pdf'
+  }
+];
+
+function Resume() {
+  return (
+    <section id="resume" className="py-20 px-6 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto relative">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-bold mb-12 text-center text-tertiary"
+        >
+          My Resumes
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {resumes.map((resume, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="bg-tertiary/10 backdrop-blur-sm p-6 rounded-lg border border-primary/20"
+            >
+              <h3 className="text-2xl font-bold mb-2 text-primary">{resume.title}</h3>
+              <p className="text-secondary mb-6">{resume.description}</p>
+              
+              <div className="flex gap-4">
+                <motion.a
+                  href={resume.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 bg-primary hover:bg-primary/80 text-background px-4 py-2 rounded-lg transition-colors"
+                >
+                  <Eye className="w-4 h-4" />
+                  View
+                </motion.a>
+                
+                <motion.a
+                  href={resume.file}
+                  download
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="flex items-center gap-2 bg-tertiary/20 hover:bg-tertiary/30 text-tertiary px-4 py-2 rounded-lg transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Download
+                </motion.a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Resume;
+
+
+
+
+// --- D:\Personal works\riguchi\src\components\Skills.js ---
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { FaReact, FaJs, FaNodeJs, FaPython, FaCode, FaProjectDiagram, FaShieldAlt, FaRobot } from 'react-icons/fa';
+
+function Skills() {
+  const [activeCategory, setActiveCategory] = useState('technical');
+
+  const skills = {
+    technical: [
+      { name: 'React', icon: <FaReact />, level: 90 },
+      { name: 'JavaScript', icon: <FaJs />, level: 85 },
+      { name: 'Node.js', icon: <FaNodeJs />, level: 80 },
+      { name: 'Python', icon: <FaPython />, level: 75 },
+      { name: 'TypeScript', icon: <FaCode />, level: 85 },
+      { name: 'Vue.js', icon: <FaCode />, level: 80 },
+      { name: 'Next.js', icon: <FaCode />, level: 85 },
+      { name: 'Svelte', icon: <FaCode />, level: 75 },
+    ],
+    product: [
+      { name: 'Product Strategy', icon: <FaProjectDiagram />, level: 95 },
+      { name: 'Agile/Scrum', icon: <FaProjectDiagram />, level: 90 },
+      { name: 'User Research', icon: <FaProjectDiagram />, level: 85 },
+      { name: 'Data Analysis', icon: <FaProjectDiagram />, level: 80 },
+      { name: 'Project Management', icon: <FaProjectDiagram />, level: 90 },
+    ],
+    security: [
+      { name: 'SDLC', icon: <FaShieldAlt />, level: 85 },
+      { name: 'DevOps', icon: <FaShieldAlt />, level: 80 },
+      { name: 'Cloud Security', icon: <FaShieldAlt />, level: 75 },
+      { name: 'Risk Management', icon: <FaShieldAlt />, level: 85 },
+      { name: 'OWASP Top 10', icon: <FaShieldAlt />, level: 85 },
+    ],
+    ai: [
+      { name: 'AI Engineering', icon: <FaRobot />, level: 80 },
+      { name: 'Prompt Engineering', icon: <FaRobot />, level: 85 },
+      { name: 'RAG', icon: <FaRobot />, level: 75 },
+      { name: 'LLM Integration', icon: <FaRobot />, level: 80 },
+    ],
+  };
+
+  return (
+    <section id="skills" className="py-20 px-6">
+      <div className="max-w-6xl mx-auto">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-bold mb-12 text-center text-tertiary"
+        >
+          Skills
+        </motion.h2>
+
+        <div className="flex justify-center gap-4 mb-12">
+          {Object.keys(skills).map((category) => (
+            <motion.button
+              key={category}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setActiveCategory(category)}
+              className={`px-6 py-3 rounded-lg text-lg font-semibold transition-colors ${
+                activeCategory === category
+                  ? 'bg-primary text-background'
+                  : 'bg-tertiary/10 text-tertiary hover:bg-tertiary/20'
+              }`}
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </motion.button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {skills[activeCategory].map((skill, index) => (
+            <SkillCard key={skill.name} {...skill} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SkillCard({ name, icon, level, index }) {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={inView ? { opacity: 1, scale: 1 } : {}}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="bg-tertiary/10 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow flex flex-col items-center text-center"
+    >
+      <div className="text-5xl text-primary mb-4">{icon}</div>
+      <h3 className="text-xl font-semibold text-tertiary mb-2">{name}</h3>
+      <div className="w-full bg-secondary/30 rounded-full h-2.5">
+        <div
+          className="bg-primary h-2.5 rounded-full"
+          style={{ width: `${level}%` }}
+        ></div>
+      </div>
+      <p className="text-secondary mt-2">Proficiency: {level}%</p>
+    </motion.div>
+  );
+}
+
+export default Skills;
+
+
+
+
+// --- D:\Personal works\riguchi\src\index.css ---
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0f0f1a;
+  --text: #ffffff;
+  --accent: #b83280;
+  --secondary: #1E2F97;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.text-purple-400 {
+  --tw-text-opacity: 1;
+  color: #b83280;
+  color: rgb(184 50 128 / var(--tw-text-opacity));
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3), 2px -2px 4px rgba(0, 0, 0, 0.3), -2px 2px 4px rgba(0, 0, 0, 0.3), -2px -2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-background-dark {
+  background-color: rgba(15, 15, 26, 0.8);
+}
+
+.border-accent {
+  border-color: var(--accent);
+}
+
+.hover\:bg-accent:hover {
+  background-color: var(--accent);
+}
+
+.hover\:text-background:hover {
+  color: var(--background);
+}
+
+
+// --- D:\Personal works\riguchi\src\index.js ---
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#8B2FBE" />
+    <meta
+      name="description"
+      content="Ryan Iguchi - Product Manager & Software Engineer with expertise in web development, cybersecurity, and IT management."
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ryan Iguchi - Product Manager & Software Engineer</title>
+    
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont,
+          'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+          'Droid Sans', 'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-CSzcvwz9FloFU5aSGkhbvn91X4p3XQ.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #FFFFFF;
+        min-height: 100vh;
+      }
+
+      code {
+        font-family: 'JetBrains Mono', source-code-pro, Menlo, Monaco, Consolas,
+          'Courier New', monospace;
+      }
+
+      #root {
+        min-height: 100vh;
+      }
+
+      .loading {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: linear-gradient(135deg, #8B2FBE 0%, #1E2F97 100%);
+      }
+
+      .loading::after {
+        content: '';
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(255, 255, 255, 0.1);
+        border-top-color: #FF3366;
+        border-radius: 50%;
+        animation: loading 0.75s ease infinite;
+      }
+
+      @keyframes loading {
+        from { transform: rotate(0turn); }
+        to { transform: rotate(1turn); }
+      }
+
+      /* Enhanced text readability */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      p, a, button, input, textarea {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .tech-text {
+        font-family: 'JetBrains Mono', monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+      <div class="loading"></div>
+    </div>
+  </body>
+</html>
+
+{
+  "short_name": "Ryan Iguchi",
+  "name": "Ryan Iguchi - Portfolio",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#8B2FBE",
+  "background_color": "#1E2F97"
+}
+

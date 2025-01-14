@@ -3,15 +3,19 @@ module.exports = {
   content: ['./src/**/*.{js,jsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
       colors: {
-        purple: {
-          400: '#B83280',
-          500: '#8B2FBE',
-          600: '#7C2BAD',
-          700: '#6B2499',
+        background: {
+          start: '#8B2FBE',
+          end: '#1E2F97',
         },
-        blue: {
-          900: '#1E2F97',
+        text: {
+          primary: '#FFFFFF',
+          secondary: '#E2E8F0',
+          accent: '#FF3366',
         },
       },
       backgroundImage: {
@@ -21,3 +25,4 @@ module.exports = {
   },
   plugins: [],
 };
+
