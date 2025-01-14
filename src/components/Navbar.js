@@ -1,6 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronUp, Home, User, Code, Briefcase, FileText, Mail } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  ChevronUp,
+  Home,
+  User,
+  Code,
+  Briefcase,
+  FileText,
+  Mail,
+} from "lucide-react";
 
 function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
@@ -13,18 +21,18 @@ function Navbar() {
       setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.nav 
+        <motion.nav
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           exit={{ y: -100 }}
@@ -35,18 +43,18 @@ function Navbar() {
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="text-2xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent cursor-pointer font-mono"
+            className="text-2xl font-bold bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 bg-clip-text text-transparent cursor-pointer font-mono"
           >
-            {'{R.I}'}
+            {"{RI}"}
           </motion.div>
           <div className="hidden md:flex gap-6">
             {[
-              { name: 'Home', icon: <Home size={18} /> },
-              { name: 'About', icon: <User size={18} /> },
-              { name: 'Skills', icon: <Code size={18} /> },
-              { name: 'Experience', icon: <Briefcase size={18} /> },
-              { name: 'Resume', icon: <FileText size={18} /> },
-              { name: 'Contact', icon: <Mail size={18} /> }
+              { name: "Home", icon: <Home size={18} /> },
+              { name: "About", icon: <User size={18} /> },
+              { name: "Skills", icon: <Code size={18} /> },
+              { name: "Experience", icon: <Briefcase size={18} /> },
+              { name: "Resume", icon: <FileText size={18} /> },
+              { name: "Contact", icon: <Mail size={18} /> },
             ].map(({ name, icon }) => (
               <NavLink key={name} href={`#${name.toLowerCase()}`}>
                 <span className="mr-2">{icon}</span>
@@ -92,4 +100,3 @@ function NavLink({ href, children }) {
 }
 
 export default Navbar;
-
