@@ -55,17 +55,13 @@ const LoadingAnimation = () => {
                   <motion.span
                     key={index}
                     className={`font-sans font-light ${
-                      char.isInitial 
-                        ? 'text-8xl text-white' 
-                        : char.isSpace 
+                      char.isSpace 
                         ? 'mx-4' // Add more space between names
                         : 'text-6xl text-pink-200'
                     }`}
                     style={{
                       display: 'inline-block',
-                      textShadow: char.isInitial 
-                        ? '0 0 20px rgba(255,255,255,0.3)'
-                        : 'none',
+                      textShadow: 'none',
                       letterSpacing: '-0.03em'
                     }}
                     initial={{ 
@@ -113,9 +109,7 @@ const LoadingAnimation = () => {
                   <motion.span
                     key={index}
                     className={`font-sans font-light ${
-                      char.isInitial 
-                        ? 'text-8xl text-white' 
-                        : char.isSpace 
+                      char.isSpace 
                         ? 'mx-4' // Add more space between names
                         : 'text-6xl text-pink-200'
                     }`}

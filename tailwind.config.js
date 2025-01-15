@@ -4,8 +4,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Space Grotesk', 'Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Space Grotesk', 'Inter', 'sans-serif'], // Existing sans font stack
+        mono: ['JetBrains Mono', 'monospace'], // Existing mono font stack
+        'fira-sans': ['Fira Sans', 'sans-serif'], // Existing Fira Sans
+        'roboto': ['Roboto', 'sans-serif'], // Add Roboto
+        'merriweather': ['Merriweather', 'serif'], // Add Merriweather
       },
       colors: {
         background: {
@@ -25,4 +28,3 @@ module.exports = {
   },
   plugins: [],
 };
-

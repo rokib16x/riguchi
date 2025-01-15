@@ -1,11 +1,20 @@
 import React from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Diamond } from "lucide-react";
+import { Diamond, Shield, Code, Users, Globe } from "lucide-react";
+
+// Reusable animations
+const variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const transition = { duration: 0.5 };
+
 function About() {
   const controls = useAnimation();
   const [ref, inView] = useInView({
-    triggerOnce: false,
+    triggerOnce: true, // Animation triggers only once
     threshold: 0.1,
   });
 
@@ -17,11 +26,6 @@ function About() {
     }
   }, [controls, inView]);
 
-  const variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <section id="about" className="py-20 px-6 font-poppins">
       <div className="max-w-6xl mx-auto">
@@ -29,7 +33,7 @@ function About() {
           variants={variants}
           initial="hidden"
           animate={controls}
-          transition={{ duration: 0.5 }}
+          transition={transition}
           className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
         >
           About Me
@@ -40,45 +44,40 @@ function About() {
           variants={variants}
           initial="hidden"
           animate={controls}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-8 text-lg text-gray-700"
+          transition={{ ...transition, delay: 0.2 }}
+          className="space-y-8 text-base md:text-lg text-gray-700"
         >
-          <p className="leading-relaxed">
+          <p className="leading-relaxed text-center text-lg md:text-xl">
             I'm{" "}
-            <span className="font-semibold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-xl md:text-2xl font-['Poppins']">
               Ryan Iguchi
             </span>
             , a{" "}
-            <span className="font-semibold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-xl md:text-2xl font-['Montserrat']">
               Product Manager
             </span>{" "}
             and{" "}
-            <span className="font-semibold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+            <span className="font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-xl md:text-2xl font-['Roboto']">
               Software Engineer
             </span>{" "}
             with over a decade of experience bridging technical expertise and
-            business strategy.
-          </p>
-
-          <p className="leading-relaxed">
-            My journey in tech started with building projects using no-code
-            tools back in 2010. From there, I dove into programming, exploring
-            various languages and technologies. This exploration led me to work
-            in diverse roles, from web development to leading IT departments.
+            business strategy. My journey began in 2010, experimenting with
+            no-code solutions before diving deep into software development. This
+            evolution has led me through roles spanning web development, IT
+            leadership, and product management, giving me a unique perspective
+            on building technology solutions.
           </p>
 
           <div className="space-y-6">
-            <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center">
               What I Specialize In
-            </h3>
+            </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                "Full product lifecycle management",
-                "Agile methodologies",
-                "Certified Scrum Master and Product Owner",
-                "Web development (React, TypeScript.js, Node.js)",
-                "DevOps and cloud architecture",
-                "Cybersecurity (CISSP Candidate)",
+                "Technical Development: Full-stack engineering with Svelte, React, and Node.js",
+                "Infrastructure & Security: DevOps, cloud architecture, and information security (CISSP Candidate)",
+                "Project Leadership: Product lifecycle management and strategic planning",
+                "Agile Practices: Certified Scrum Master (PSM) and Product Owner (PSPO)",
               ].map((item, index) => (
                 <motion.li
                   key={index}
@@ -88,7 +87,7 @@ function About() {
                   animate={controls}
                   transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 >
-                  <Diamond size={16} className="flex-shrink-0 text-pink-500" />
+                  <Diamond size={16} className="flex-shrink-0 text-[#FF6B6B]" />
                   <span
                     className="text-lg font-medium"
                     style={{ color: "#D7D0E5" }}
@@ -100,23 +99,63 @@ function About() {
             </ul>
           </div>
 
-          <p className="leading-relaxed">
-            I'm deeply interested in building{" "}
-            <span className="font-semibold text-pink-400">
-              innovative solutions
-            </span>{" "}
-            that solve real-world problems. My focus is on creating{" "}
-            <span className="font-semibold text-purple-400">
-              user-centric products
-            </span>{" "}
-            while ensuring they're secure, scalable, and aligned with business
-            objectives.
-          </p>
+          <div className="space-y-8">
+            <p className="leading-relaxed text-center">
+              I specialize in transforming complex technical challenges into
+              elegant, user-centric solutions. My approach combines robust
+              engineering practices with strategic business thinking, ensuring
+              products are not just well-built but also deliver measurable value
+              to users and businesses alike.
+            </p>
+          </div>
 
-          <p className="leading-relaxed">
-            When I'm not coding or managing products, I enjoy staying updated
-            with the latest tech trends, contributing to open-source projects,
-            and mentoring aspiring developers.
+          <div className="space-y-6">
+            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center">
+              Beyond my professional work:
+            </h4>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: <Shield size={24} className="text-[#FF6B6B]" />,
+                  text: "I’m deeply passionate about cybersecurity.",
+                },
+                {
+                  icon: <Code size={24} className="text-[#FF6B6B]" />,
+                  text: "I actively contribute to open-source projects.",
+                },
+                {
+                  icon: <Users size={24} className="text-[#FF6B6B]" />,
+                  text: "I enjoy mentoring the next generation of tech leaders.",
+                },
+                {
+                  icon: <Globe size={24} className="text-[#FF6B6B]" />,
+                  text: "I explore global tech trends and innovations.",
+                },
+              ].map((item, index) => (
+                <motion.li
+                  key={index}
+                  className="flex items-center space-x-3"
+                  variants={variants}
+                  initial="hidden"
+                  animate={controls}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+                >
+                  {item.icon}
+                  <span
+                    className="text-lg font-medium"
+                    style={{ color: "#D7D0E5" }}
+                  >
+                    {item.text}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="leading-relaxed text-center">
+            Currently, I’m focused on building innovative solutions in the
+            construction technology space, where I’m excited to tackle new
+            challenges that push the boundaries of what’s possible.
           </p>
         </motion.div>
       </div>
