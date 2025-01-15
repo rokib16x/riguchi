@@ -23,7 +23,7 @@ function Hero() {
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
             transition={{ delay: 0.2 }}
-            className="text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent cursor-default"
+            className="text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk'] cursor-default"
             whileHover={{ scale: 1.05 }}
           >
             Ryan Iguchi.
@@ -32,7 +32,7 @@ function Hero() {
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
             transition={{ delay: 0.4 }}
-            className="text-2xl md:text-3xl text-white/80 font-medium mb-6"
+            className="text-2xl md:text-3xl text-white/80 font-medium mb-6 font-['Inter']"
           >
             Product Manager & Software Engineer
           </motion.h2>
@@ -94,3 +94,4 @@ function SocialLink({ href, icon, label }) {
 }
 
 export default Hero;
+

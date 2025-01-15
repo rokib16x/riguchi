@@ -43,10 +43,11 @@ function Navbar() {
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="text-2xl font-bold bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-300 bg-clip-text text-transparent cursor-pointer font-mono"
+            className="text-2xl font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent cursor-pointer font-mono"
           >
             {"{RI}"}
           </motion.div>
+
           <div className="hidden md:flex gap-6">
             {[
               { name: "Home", icon: <Home size={18} /> },

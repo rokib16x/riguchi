@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Diamond, Shield, Code, Users, Globe } from "lucide-react";
+import { Diamond, Shield, Code, Users, Globe } from 'lucide-react';
 
 // Reusable animations
 const variants = {
@@ -34,7 +34,7 @@ function About() {
           initial="hidden"
           animate={controls}
           transition={transition}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']"
         >
           About Me
         </motion.h2>
@@ -45,9 +45,9 @@ function About() {
           initial="hidden"
           animate={controls}
           transition={{ ...transition, delay: 0.2 }}
-          className="space-y-8 text-base md:text-lg text-gray-700"
+          className="space-y-8 text-base md:text-lg text-white/80 font-['Inter']"
         >
-          <p className="leading-relaxed text-center text-lg md:text-xl">
+          <p className="leading-relaxed text-center text-lg md:text-xl text-white/80 font-['Inter']">
             I'm{" "}
             <span className="font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-xl md:text-2xl font-['Poppins']">
               Ryan Iguchi
@@ -69,7 +69,7 @@ function About() {
           </p>
 
           <div className="space-y-6">
-            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center">
+            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center font-['Space_Grotesk']">
               What I Specialize In
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -89,8 +89,7 @@ function About() {
                 >
                   <Diamond size={16} className="flex-shrink-0 text-[#FF6B6B]" />
                   <span
-                    className="text-lg font-medium"
-                    style={{ color: "#D7D0E5" }}
+                    className="text-lg font-medium text-white/80 font-['Inter']"
                   >
                     {item}
                   </span>
@@ -100,7 +99,7 @@ function About() {
           </div>
 
           <div className="space-y-8">
-            <p className="leading-relaxed text-center">
+            <p className="leading-relaxed text-center text-white/80 font-['Inter']">
               I specialize in transforming complex technical challenges into
               elegant, user-centric solutions. My approach combines robust
               engineering practices with strategic business thinking, ensuring
@@ -110,14 +109,14 @@ function About() {
           </div>
 
           <div className="space-y-6">
-            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center">
+            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center font-['Space_Grotesk']">
               Beyond my professional work:
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
                   icon: <Shield size={24} className="text-[#FF6B6B]" />,
-                  text: "I’m deeply passionate about cybersecurity.",
+                  text: "I'm deeply passionate about cybersecurity.",
                 },
                 {
                   icon: <Code size={24} className="text-[#FF6B6B]" />,
@@ -142,8 +141,7 @@ function About() {
                 >
                   {item.icon}
                   <span
-                    className="text-lg font-medium"
-                    style={{ color: "#D7D0E5" }}
+                    className="text-lg font-medium text-white/80 font-['Inter']"
                   >
                     {item.text}
                   </span>
@@ -152,10 +150,10 @@ function About() {
             </ul>
           </div>
 
-          <p className="leading-relaxed text-center">
-            Currently, I’m focused on building innovative solutions in the
-            construction technology space, where I’m excited to tackle new
-            challenges that push the boundaries of what’s possible.
+          <p className="leading-relaxed text-center text-white/80 font-['Inter']">
+            Currently, I'm focused on building innovative solutions in the
+            construction technology space, where I'm excited to tackle new
+            challenges that push the boundaries of what's possible.
           </p>
         </motion.div>
       </div>
@@ -164,3 +162,4 @@ function About() {
 }
 
 export default About;
+

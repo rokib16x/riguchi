@@ -8,7 +8,7 @@ function Contact() {
       <motion.h2
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        className="text-5xl font-bold mb-6 text-tertiary"
+        className="text-5xl font-bold mb-6 text-center bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']"
       >
         Let's Connect
       </motion.h2>
@@ -16,7 +16,7 @@ function Contact() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.2 }}
-        className="mb-8 text-secondary text-xl"
+        className="mb-8 text-white/80 text-xl font-['Inter']"
       >
         I'm always open to new opportunities and collaborations.
         <br />
@@ -44,7 +44,7 @@ function ContactButton({ href, icon, text }) {
       rel="noopener noreferrer"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="flex items-center gap-2 bg-tertiary/10 hover:bg-tertiary/20 text-tertiary px-6 py-3 rounded-lg transition-colors"
+      className="flex items-center gap-2 bg-gradient-to-r from-[#4077E3] to-[#1DC177] hover:from-[#3066D2] hover:to-[#1CAF66] text-white px-6 py-3 rounded-lg transition-colors font-['Inter']"
     >
       {icon}
       {text}

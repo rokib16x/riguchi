@@ -49,7 +49,7 @@ function Certifications() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
+          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']"
         >
           Certifications
         </motion.h2>
@@ -77,9 +77,9 @@ function CertificationCard({ title, issuer, date, color, index }) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className={`bg-white/5 backdrop-blur-sm p-6 rounded-lg hover:bg-white/10 transition-colors duration-300 border border-transparent hover:border-${color.split(' ')[1]} group`}
     >
-      <h3 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${color} bg-clip-text text-transparent`}>{title}</h3>
-      <p className="text-white/80">{issuer}</p>
-      <p className="text-white/60">{date}</p>
+      <h3 className={`text-2xl font-bold mb-2 bg-gradient-to-r ${color} bg-clip-text text-transparent font-['Space_Grotesk']`}>{title}</h3>
+      <p className="text-white/80 font-['Inter']">{issuer}</p>
+      <p className="text-white/60 font-['Inter']">{date}</p>
       <div className={`w-0 group-hover:w-full h-1 bg-gradient-to-r ${color} transition-all duration-300 mt-4`} />
     </motion.div>
   );

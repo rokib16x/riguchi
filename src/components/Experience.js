@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import Lottie from 'lottie-react'; // Import Lottie
+import Lottie from 'lottie-react';
 
 function Experience() {
   const [ref, inView] = useInView({
@@ -70,10 +70,10 @@ function Experience() {
             transition={{ duration: 0.8 }}
             className="md:w-1/2"
           >
-            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']">
               Work Experience
             </h2>
-            <p className="text-lg text-white/70 text-center md:text-left">
+            <p className="text-lg text-white/80 text-center md:text-left font-['Inter']">
               A decade of experience in product management, software engineering, and team leadership.
             </p>
           </motion.div>
@@ -84,12 +84,11 @@ function Experience() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 relative"
           >
-            {/* Lottie Animation from Public Folder */}
             <Lottie
-              animationData={null} // Set to null initially
-              path="/Animation2.json" // Path to the JSON file in the public folder
-              loop={true} // Loop the animation
-              autoplay={true} // Autoplay the animation
+              animationData={null}
+              path="/Animation2.json"
+              loop={true}
+              autoplay={true}
               className="w-full max-w-md mx-auto"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -127,16 +126,16 @@ function ExperienceCard({ title, company, period, description, achievements, col
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 400, damping: 10 }}
       >
-        <h3 className={`text-2xl font-bold bg-gradient-to-r ${color} bg-clip-text text-transparent`}>{title}</h3>
-        <p className="text-white/80">{company}</p>
-        <p className="text-white/60 text-sm mb-4">{period}</p>
-        <p className="text-white/80 mb-4">{description}</p>
+        <h3 className={`text-2xl font-bold bg-gradient-to-r ${color} bg-clip-text text-transparent font-['Space_Grotesk']`}>{title}</h3>
+        <p className="text-white/80 font-['Inter']">{company}</p>
+        <p className="text-white/60 text-sm mb-4 font-['Inter']">{period}</p>
+        <p className="text-white/80 mb-4 font-['Inter']">{description}</p>
 
         <ul className="space-y-2">
           {achievements.map((achievement, i) => (
             <li key={i} className="flex items-start space-x-2">
               <span className={`text-gradient-to-r ${color}`}>✔</span>
-              <span className="text-white/70">{achievement}</span>
+              <span className="text-white/70 font-['Inter']">{achievement}</span>
             </li>
           ))}
         </ul>
@@ -146,3 +145,4 @@ function ExperienceCard({ title, company, period, description, achievements, col
 }
 
 export default Experience;
+

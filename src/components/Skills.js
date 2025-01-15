@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaReact, FaJs, FaNodeJs, FaPython, FaCode, FaProjectDiagram, FaShieldAlt, FaRobot } from 'react-icons/fa';
-import Lottie from 'lottie-react'; // Import Lottie
+import Lottie from 'lottie-react';
 
 function Skills() {
   const [activeCategory, setActiveCategory] = useState('technical');
@@ -55,10 +55,10 @@ function Skills() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="md:w-1/2"
           >
-            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']">
               Skills & Expertise
             </h2>
-            <p className="text-lg text-white/70 text-center md:text-left">
+            <p className="text-lg text-white/80 text-center md:text-left font-['Inter']">
               With extensive experience in both product management and software engineering,
               I bring a unique blend of technical expertise and strategic thinking.
             </p>
@@ -69,11 +69,10 @@ function Skills() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 relative"
           >
-            {/* Lottie Animation from Public Folder */}
             <Lottie
-              path="/Animation1.json" // Path to the JSON file in the public folder
-              loop={true} // Loop the animation
-              autoplay={true} // Autoplay the animation
+              path="/Animation1.json"
+              loop={true}
+              autoplay={true}
               className="w-full max-w-md mx-auto"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
@@ -87,9 +86,9 @@ function Skills() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
-              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 ${
+              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-pink-500 to-purple-500 text-white'
+                  ? 'bg-gradient-to-r from-[#4077E3] to-[#1DC177] text-white'
                   : 'bg-white/10 text-white/80 hover:bg-white/20'
               }`}
             >
@@ -124,7 +123,7 @@ function SkillCard({ name, icon, level, index }) {
       className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 transition-all duration-300"
     >
       <div className="text-5xl text-pink-500 mb-4 group-hover:scale-110 transition-transform duration-300">{icon}</div>
-      <h3 className="text-xl font-semibold text-white mb-2">{name}</h3>
+      <h3 className="text-xl font-semibold text-white mb-2 font-['Space_Grotesk']">{name}</h3>
       <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
@@ -133,9 +132,10 @@ function SkillCard({ name, icon, level, index }) {
           className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
         />
       </div>
-      <p className="text-white/60 mt-2">Proficiency: {level}%</p>
+      <p className="text-white/60 mt-2 font-['Inter']">Proficiency: {level}%</p>
     </motion.div>
   );
 }
 
 export default Skills;
+
