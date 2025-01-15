@@ -1,8 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Lottie from 'lottie-react'; // Import Lottie
 
 function Experience() {
+  const [ref, inView] = useInView({
+    triggerOnce: false,
+    threshold: 0.1,
+  });
+
   const experiences = [
     {
       title: "Product Manager",
@@ -55,16 +61,40 @@ function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 px-6">
+    <section id="experience" className="py-20 px-6 relative">
       <div className="max-w-6xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent"
-        >
-          Work Experience
-        </motion.h2>
+        <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="md:w-1/2"
+          >
+            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+              Work Experience
+            </h2>
+            <p className="text-lg text-white/70 text-center md:text-left">
+              A decade of experience in product management, software engineering, and team leadership.
+            </p>
+          </motion.div>
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={inView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="md:w-1/2 relative"
+          >
+            {/* Lottie Animation from Public Folder */}
+            <Lottie
+              animationData={null} // Set to null initially
+              path="/Animation2.json" // Path to the JSON file in the public folder
+              loop={true} // Loop the animation
+              autoplay={true} // Autoplay the animation
+              className="w-full max-w-md mx-auto"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+          </motion.div>
+        </div>
 
         <div className="space-y-12">
           {experiences.map((experience, index) => (
@@ -116,4 +146,3 @@ function ExperienceCard({ title, company, period, description, achievements, col
 }
 
 export default Experience;
-
