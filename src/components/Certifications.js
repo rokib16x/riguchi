@@ -16,12 +16,7 @@ function Certifications() {
       date: "Apr 2024",
       color: "from-purple-500 to-indigo-500"
     },
-    {
-      title: "Certified in Cybersecurity (CC)",
-      issuer: "ISC2",
-      date: "Sept 2023",
-      color: "from-indigo-500 to-blue-500"
-    },
+
     {
       title: "Cybersecurity Professional",
       issuer: "Cal State Long Beach",
@@ -39,6 +34,12 @@ function Certifications() {
       issuer: "Microsoft",
       date: "Dec 2023",
       color: "from-green-500 to-yellow-500"
+    },
+    {
+      title: "Certified in Cybersecurity (CC)",
+      issuer: "ISC2",
+      date: "Sept 2023",
+      color: "from-indigo-500 to-blue-500"
     },
   ];
 

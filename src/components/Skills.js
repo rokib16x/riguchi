@@ -1,47 +1,98 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FaReact, FaJs, FaNodeJs, FaPython, FaCode, FaProjectDiagram, FaShieldAlt, FaRobot } from 'react-icons/fa';
-import Lottie from 'lottie-react';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  FaReact,
+  FaJs,
+  FaNodeJs,
+  FaPython,
+  FaProjectDiagram,
+  FaShieldAlt,
+  FaRobot,
+  FaCss3,
+  FaBootstrap,
+  FaPhp,
+  FaBrain, // Added for Reinforcement Learning
+} from "react-icons/fa";
+import {
+  SiTypescript,
+  SiSvelte,
+  SiTailwindcss,
+  SiNextdotjs,
+  SiVuedotjs,
+  SiGraphql,
+  SiJira,
+  SiTrello,
+  SiSlack,
+} from "react-icons/si";
+import { GiNetworkBars, GiSpy } from "react-icons/gi";
+import Lottie from "lottie-react";
 
 function Skills() {
-  const [activeCategory, setActiveCategory] = useState('technical');
+  const [activeCategory, setActiveCategory] = useState("technical");
   const [ref, inView] = useInView({
-    triggerOnce: false,
+    triggerOnce: true, // Animations trigger only once
     threshold: 0.1,
   });
 
   const skills = {
     technical: [
-      { name: 'React', icon: <FaReact />, level: 90 },
-      { name: 'JavaScript', icon: <FaJs />, level: 85 },
-      { name: 'Node.js', icon: <FaNodeJs />, level: 80 },
-      { name: 'Python', icon: <FaPython />, level: 75 },
-      { name: 'TypeScript', icon: <FaCode />, level: 85 },
-      { name: 'Vue.js', icon: <FaCode />, level: 80 },
-      { name: 'Next.js', icon: <FaCode />, level: 85 },
-      { name: 'Svelte', icon: <FaCode />, level: 75 },
+      { name: "TypeScript", icon: <SiTypescript /> },
+      { name: "React", icon: <FaReact /> },
+      { name: "JavaScript", icon: <FaJs /> },
+      { name: "Python", icon: <FaPython /> },
+      { name: "Node.js", icon: <FaNodeJs /> },
+      { name: "Svelte", icon: <SiSvelte /> },
+      { name: "CSS3", icon: <FaCss3 /> },
+      { name: "Bootstrap", icon: <FaBootstrap /> },
+      { name: "Tailwind", icon: <SiTailwindcss /> },
+      { name: "Next.js", icon: <SiNextdotjs /> },
+      { name: "Vue.js", icon: <SiVuedotjs /> },
+      { name: "PHP", icon: <FaPhp /> },
     ],
     product: [
-      { name: 'Product Strategy', icon: <FaProjectDiagram />, level: 95 },
-      { name: 'Agile/Scrum', icon: <FaProjectDiagram />, level: 90 },
-      { name: 'User Research', icon: <FaProjectDiagram />, level: 85 },
-      { name: 'Data Analysis', icon: <FaProjectDiagram />, level: 80 },
-      { name: 'Project Management', icon: <FaProjectDiagram />, level: 90 },
+      { name: "Technical Project Management", icon: <FaProjectDiagram /> },
+      { name: "Product Strategy", icon: <FaProjectDiagram /> },
+      { name: "Agile Methodology", icon: <SiJira /> },
+      { name: "Scrum Master", icon: <SiTrello /> },
+      { name: "Backlog Management", icon: <SiJira /> },
+      { name: "User Research", icon: <FaProjectDiagram /> },
+      { name: "Data Analysis", icon: <FaProjectDiagram /> },
+      { name: "Stakeholder Communication", icon: <SiSlack /> },
+      { name: "Brand Development", icon: <FaProjectDiagram /> },
     ],
     security: [
-      { name: 'SDLC', icon: <FaShieldAlt />, level: 85 },
-      { name: 'DevOps', icon: <FaShieldAlt />, level: 80 },
-      { name: 'Cloud Security', icon: <FaShieldAlt />, level: 75 },
-      { name: 'Risk Management', icon: <FaShieldAlt />, level: 85 },
-      { name: 'OWASP Top 10', icon: <FaShieldAlt />, level: 85 },
+      { name: "SDLC", icon: <FaShieldAlt /> },
+      { name: "DevOps", icon: <FaShieldAlt /> },
+      { name: "Cloud Security", icon: <FaShieldAlt /> },
+      { name: "Risk Management", icon: <FaShieldAlt /> },
+      { name: "OWASP Top 10", icon: <FaShieldAlt /> },
+      { name: "Network Security", icon: <GiNetworkBars /> },
+      { name: "Reverse Engineering", icon: <GiSpy /> },
     ],
     ai: [
-      { name: 'AI Engineering', icon: <FaRobot />, level: 80 },
-      { name: 'Prompt Engineering', icon: <FaRobot />, level: 85 },
-      { name: 'RAG', icon: <FaRobot />, level: 75 },
-      { name: 'LLM Integration', icon: <FaRobot />, level: 80 },
+      { name: "AI Engineering", icon: <FaRobot /> },
+      { name: "Prompt Engineering", icon: <FaRobot /> },
+      { name: "RAG", icon: <FaRobot /> },
+      { name: "LLM Integration", icon: <FaRobot /> },
+      { name: "Graph Database", icon: <SiGraphql /> },
+      { name: "Reinforcement Learning", icon: <FaBrain /> }, // Added Reinforcement Learning
     ],
+  };
+
+  const getBarColor = (category) => {
+    switch (category) {
+      case "technical":
+        return { gradient: "from-blue-500 to-purple-500", iconColor: "text-blue-500" };
+      case "product":
+        return { gradient: "from-green-500 to-teal-500", iconColor: "text-green-500" };
+      case "security":
+        return { gradient: "from-red-500 to-orange-500", iconColor: "text-red-500" };
+      case "ai":
+        return { gradient: "from-pink-500 to-indigo-500", iconColor: "text-pink-500" };
+      default:
+        return { gradient: "from-pink-500 to-purple-500", iconColor: "text-pink-500" };
+    }
   };
 
   return (
@@ -86,10 +137,11 @@ function Skills() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
+              aria-pressed={activeCategory === category}
               className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] ${
                 activeCategory === category
-                  ? 'bg-gradient-to-r from-[#4077E3] to-[#1DC177] text-white'
-                  : 'bg-white/10 text-white/80 hover:bg-white/20'
+                  ? "bg-gradient-to-r from-[#4077E3] to-[#1DC177] text-white"
+                  : "bg-white/10 text-white/80 hover:bg-white/20"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -99,7 +151,13 @@ function Skills() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {skills[activeCategory].map((skill, index) => (
-            <SkillCard key={skill.name} {...skill} index={index} />
+            <SkillCard
+              key={skill.name}
+              name={skill.name}
+              icon={skill.icon}
+              index={index}
+              barColor={getBarColor(activeCategory)}
+            />
           ))}
         </div>
       </div>
@@ -107,9 +165,9 @@ function Skills() {
   );
 }
 
-function SkillCard({ name, icon, level, index }) {
+function SkillCard({ name, icon, index, barColor }) {
   const [ref, inView] = useInView({
-    triggerOnce: false,
+    triggerOnce: true, // Animations trigger only once
     threshold: 0.1,
   });
 
@@ -119,23 +177,25 @@ function SkillCard({ name, icon, level, index }) {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
       whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.5 }}
-      className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 transition-all duration-300"
+      transition={{ duration: 0.3 }}
+      className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between h-full"
     >
-      <div className="text-5xl text-pink-500 mb-4 group-hover:scale-110 transition-transform duration-300">{icon}</div>
-      <h3 className="text-xl font-semibold text-white mb-2 font-['Space_Grotesk']">{name}</h3>
+      <div className="flex flex-col items-center text-center">
+        <div className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+          {icon}
+        </div>
+        <h3 className="text-xl font-semibold text-white mb-2 font-['Space_Grotesk']">{name}</h3>
+      </div>
       <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
-          animate={inView ? { width: `${level}%` } : { width: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="h-full bg-gradient-to-r from-pink-500 to-purple-500"
+          animate={inView ? { width: "100%" } : { width: 0 }}
+          transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+          className={`h-full bg-gradient-to-r ${barColor.gradient}`}
         />
       </div>
-      <p className="text-white/60 mt-2 font-['Inter']">Proficiency: {level}%</p>
     </motion.div>
   );
 }
 
 export default Skills;
-

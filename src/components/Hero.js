@@ -43,8 +43,8 @@ function Hero() {
             className="flex justify-center md:justify-start gap-4"
           >
             <SocialLink href="https://github.com" icon={<FaGithub />} label="GitHub" />
-            <SocialLink href="https://linkedin.com" icon={<FaLinkedin />} label="LinkedIn" />
-            <SocialLink href="mailto:ryan@netdevs.net" icon={<FaEnvelope />} label="Email" />
+            <SocialLink href="https://www.linkedin.com/in/ryaniguchi/" icon={<FaLinkedin />} label="LinkedIn" />
+            <SocialLink href="mailto:riguchijob@gmail.com" icon={<FaEnvelope />} label="Email" />
           </motion.div>
         </div>
 

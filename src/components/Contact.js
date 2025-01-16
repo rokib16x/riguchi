@@ -28,9 +28,9 @@ function Contact() {
         transition={{ delay: 0.4 }}
         className="flex justify-center gap-6"
       >
-        <ContactButton href="https://linkedin.com/in/yourusername" icon={<FaLinkedin />} text="LinkedIn" />
+        <ContactButton href="https://www.linkedin.com/in/ryaniguchi/" icon={<FaLinkedin />} text="LinkedIn" />
         <ContactButton href="https://github.com/yourusername" icon={<FaGithub />} text="GitHub" />
-        <ContactButton href="mailto:ryan@netdevs.net" icon={<FaEnvelope />} text="Email" />
+        <ContactButton href="mailto:riguchijob@gmail.com" icon={<FaEnvelope />} text="Email" />
       </motion.div>
     </section>
   );

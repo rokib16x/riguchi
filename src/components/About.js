@@ -1,7 +1,6 @@
 import React from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { Diamond, Shield, Code, Users, Globe } from 'lucide-react';
+import { motion } from "framer-motion";
+import { Diamond, Shield, Code, Users, Globe } from "lucide-react";
 
 // Reusable animations
 const variants = {
@@ -11,54 +10,95 @@ const variants = {
 
 const transition = { duration: 0.5 };
 
+// Reusable ListItem component
+const ListItem = ({ icon, text, delay }) => (
+  <motion.li
+    className="flex items-center space-x-3"
+    variants={variants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, amount: 0.5 }}
+    transition={{ duration: 0.5, delay }}
+  >
+    {icon}
+    <span className="text-lg font-medium text-white/80 font-inter">{text}</span>
+  </motion.li>
+);
+
 function About() {
-  const controls = useAnimation();
-  const [ref, inView] = useInView({
-    triggerOnce: true, // Animation triggers only once
-    threshold: 0.1,
-  });
-
-  React.useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    } else {
-      controls.start("hidden");
-    }
-  }, [controls, inView]);
-
   return (
     <section id="about" className="py-20 px-6 font-poppins">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           variants={variants}
           initial="hidden"
-          animate={controls}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
           transition={transition}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']"
+          className="text-4xl md:text-5xl font-bold mb-12 text-center font-space-grotesk"
+          style={{
+            background: "linear-gradient(to right, #4077E3, #1DC177)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            color: "transparent",
+          }}
         >
           About Me
         </motion.h2>
 
         <motion.div
-          ref={ref}
           variants={variants}
           initial="hidden"
-          animate={controls}
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.5 }}
           transition={{ ...transition, delay: 0.2 }}
-          className="space-y-8 text-base md:text-lg text-white/80 font-['Inter']"
+          className="space-y-8 text-base md:text-lg text-white/80 font-inter"
         >
-          <p className="leading-relaxed text-center text-lg md:text-xl text-white/80 font-['Inter']">
+          <p className="leading-relaxed text-center text-lg md:text-xl font-inter">
             I'm{" "}
-            <span className="font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-xl md:text-2xl font-['Poppins']">
+            <span
+              className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins"
+              style={{
+                background: "linear-gradient(to right, #4077E3, #1DC177)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
               Ryan Iguchi
+              <span
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#FFD700] group-hover:w-full transition-all duration-300"
+              />
             </span>
             , a{" "}
-            <span className="font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-xl md:text-2xl font-['Montserrat']">
+            <span
+              className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins"
+              style={{
+                background: "linear-gradient(to right, #4077E3, #1DC177)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
               Product Manager
+              <span
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#FFD700] group-hover:w-full transition-all duration-300"
+              />
             </span>{" "}
             and{" "}
-            <span className="font-bold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-xl md:text-2xl font-['Roboto']">
+            <span
+              className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins"
+              style={{
+                background: "linear-gradient(to right, #4077E3, #1DC177)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
               Software Engineer
+              <span
+                className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#FFD700] group-hover:w-full transition-all duration-300"
+              />
             </span>{" "}
             with over a decade of experience bridging technical expertise and
             business strategy. My journey began in 2010, experimenting with
@@ -69,7 +109,15 @@ function About() {
           </p>
 
           <div className="space-y-6">
-            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center font-['Space_Grotesk']">
+            <h4
+              className="text-xl md:text-3xl font-semibold text-center font-space-grotesk"
+              style={{
+                background: "linear-gradient(to right, #4077E3, #1DC177)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
               What I Specialize In
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -79,27 +127,18 @@ function About() {
                 "Project Leadership: Product lifecycle management and strategic planning",
                 "Agile Practices: Certified Scrum Master (PSM) and Product Owner (PSPO)",
               ].map((item, index) => (
-                <motion.li
+                <ListItem
                   key={index}
-                  className="flex items-center space-x-3"
-                  variants={variants}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                >
-                  <Diamond size={16} className="flex-shrink-0 text-[#FF6B6B]" />
-                  <span
-                    className="text-lg font-medium text-white/80 font-['Inter']"
-                  >
-                    {item}
-                  </span>
-                </motion.li>
+                  icon={<Diamond size={16} className="flex-shrink-0 text-[#FF6B6B]" />}
+                  text={item}
+                  delay={0.3 + index * 0.1}
+                />
               ))}
             </ul>
           </div>
 
           <div className="space-y-8">
-            <p className="leading-relaxed text-center text-white/80 font-['Inter']">
+            <p className="leading-relaxed text-center font-inter">
               I specialize in transforming complex technical challenges into
               elegant, user-centric solutions. My approach combines robust
               engineering practices with strategic business thinking, ensuring
@@ -109,7 +148,15 @@ function About() {
           </div>
 
           <div className="space-y-6">
-            <h4 className="text-xl md:text-3xl font-semibold bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent text-center font-['Space_Grotesk']">
+            <h4
+              className="text-xl md:text-3xl font-semibold text-center font-space-grotesk"
+              style={{
+                background: "linear-gradient(to right, #4077E3, #1DC177)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                color: "transparent",
+              }}
+            >
               Beyond my professional work:
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -131,26 +178,17 @@ function About() {
                   text: "I explore global tech trends and innovations.",
                 },
               ].map((item, index) => (
-                <motion.li
+                <ListItem
                   key={index}
-                  className="flex items-center space-x-3"
-                  variants={variants}
-                  initial="hidden"
-                  animate={controls}
-                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                >
-                  {item.icon}
-                  <span
-                    className="text-lg font-medium text-white/80 font-['Inter']"
-                  >
-                    {item.text}
-                  </span>
-                </motion.li>
+                  icon={item.icon}
+                  text={item.text}
+                  delay={0.3 + index * 0.1}
+                />
               ))}
             </ul>
           </div>
 
-          <p className="leading-relaxed text-center text-white/80 font-['Inter']">
+          <p className="leading-relaxed text-center font-inter">
             Currently, I'm focused on building innovative solutions in the
             construction technology space, where I'm excited to tackle new
             challenges that push the boundaries of what's possible.
@@ -162,4 +200,3 @@ function About() {
 }
 
 export default About;
-
