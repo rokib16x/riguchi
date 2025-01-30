@@ -1,14 +1,15 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { Calendar, Building2, Award, Briefcase } from 'lucide-react';
+import { useRef } from "react"
+import { motion, useScroll } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { Calendar, Building2, Award, Briefcase } from "lucide-react"
 
 const experiences = [
   {
     title: "Senior Software Engineer",
     company: "Maria's Place",
     period: "Jan 2021 - Sep 2024",
-    description: "Tech team leader focused on software development, integrating third-party APIs, AWS services, and microservices.",
+    description:
+      "Tech team leader focused on software development, integrating third-party APIs, AWS services, and microservices.",
     achievements: [
       "Implemented CI/CD pipelines and automated testing tools, improving deployment efficiency by 40%.",
       "Designed user-friendly interfaces using React.js, Angular, and Vue.js, increasing user engagement by 25%.",
@@ -20,7 +21,8 @@ const experiences = [
     title: "Web Application Developer",
     company: "Maria's Place",
     period: "Jul 2014 - Dec 2020",
-    description: "Developed a membership-based website with 20K+ users, integrating eCommerce subscriptions and WMS APIs.",
+    description:
+      "Developed a membership-based website with 20K+ users, integrating eCommerce subscriptions and WMS APIs.",
     achievements: [
       "Built a ski resort management system using Ruby on Rails, reducing operational costs by 15%.",
       "Migrated DevOps to Private GitHub, improving code security and collaboration.",
@@ -56,7 +58,8 @@ const experiences = [
     title: "Digital Producer",
     company: "ULFBUILT",
     period: "Jan 2012 - Jun 2013",
-    description: "Managed ad purchasing, real estate photography, and developed a home builder website with a highly creative UX.",
+    description:
+      "Managed ad purchasing, real estate photography, and developed a home builder website with a highly creative UX.",
     achievements: [
       "Tailored ad campaigns using YP, Dex, Bing, Yahoo, and Google, increasing lead generation by 20%.",
       "Developed a visually appealing and user-friendly website for a home builder, enhancing customer engagement.",
@@ -68,7 +71,8 @@ const experiences = [
     title: "Creative Director",
     company: "Prosper Studios",
     period: "Jan 2009 - Apr 2012",
-    description: "Led mobile app and website development, managed SEO/SEM/SMO initiatives, and oversaw sales and marketing.",
+    description:
+      "Led mobile app and website development, managed SEO/SEM/SMO initiatives, and oversaw sales and marketing.",
     achievements: [
       "Created and led WordPress custom programming teams, delivering high-quality projects on time.",
       "Managed SEO, SEM, and SMO initiatives for SMB clients, increasing online visibility by 35%.",
@@ -80,7 +84,8 @@ const experiences = [
     title: "Creative Director",
     company: "VailPM",
     period: "Jan 2006 - Apr 2012",
-    description: "Created brand and marketing campaigns, planned promotional events, and managed trade show creative design.",
+    description:
+      "Created brand and marketing campaigns, planned promotional events, and managed trade show creative design.",
     achievements: [
       "Sold 3 franchises: BoulderPM, CaboPM, and HamptonsVibe, expanding the brand's reach.",
       "Designed and executed promotional events, increasing brand awareness by 40%.",
@@ -92,7 +97,8 @@ const experiences = [
     title: "Brand Developer",
     company: "Vail Sitters",
     period: "Aug 2008 - Dec 2009",
-    description: "Managed the brand lifecycle, created targeted advertising campaigns, and negotiated the sale of the company.",
+    description:
+      "Managed the brand lifecycle, created targeted advertising campaigns, and negotiated the sale of the company.",
     achievements: [
       "Built $88K in babysitting sales within 8 months through targeted advertising campaigns.",
       "Negotiated the successful sale of the company, achieving a profitable exit strategy.",
@@ -104,7 +110,8 @@ const experiences = [
     title: "Creative Director",
     company: "Vail Pro Media",
     period: "Sep 2006 - Dec 2008",
-    description: "Led client and team project management, spearheaded a Joomla custom programming team, and trained a luxury-oriented design team.",
+    description:
+      "Led client and team project management, spearheaded a Joomla custom programming team, and trained a luxury-oriented design team.",
     achievements: [
       "Managed marketing and sales initiatives, increasing revenue by 25%.",
       "Trained a team of designers to deliver high-quality, luxury-oriented designs.",
@@ -116,7 +123,8 @@ const experiences = [
     title: "Ecommerce Manager",
     company: "ScooterJones",
     period: "Jul 2005 - Jun 2008",
-    description: "Managed eCommerce operations and marketing, developed the brand, and achieved a successful company acquisition.",
+    description:
+      "Managed eCommerce operations and marketing, developed the brand, and achieved a successful company acquisition.",
     achievements: [
       "Sold $1MM online over 3 years through effective eCommerce strategies.",
       "Managed web programming, SEO, and online ad campaigns, increasing traffic by 30%.",
@@ -128,7 +136,8 @@ const experiences = [
     title: "Web App Developer",
     company: "Village Homes",
     period: "Jun 2002 - Jul 2006",
-    description: "Developed rich media objects and a complete online home shopping process with thoughtful UX/UI design.",
+    description:
+      "Developed rich media objects and a complete online home shopping process with thoughtful UX/UI design.",
     achievements: [
       "Built a seamless online home shopping experience, increasing customer satisfaction by 20%.",
       "Designed and implemented rich media objects, enhancing user engagement.",
@@ -140,7 +149,8 @@ const experiences = [
     title: "Back End Developer",
     company: "Barnstorm Creative",
     period: "Jul 2003 - Jun 2005",
-    description: "Built and led a $600K+/yr web development team, contributing to backend components and digital media projects.",
+    description:
+      "Built and led a $600K+/yr web development team, contributing to backend components and digital media projects.",
     achievements: [
       "Developed and maintained 4 web application projects, improving system efficiency by 15%.",
       "Led a 5-person digital media team, delivering high-quality projects on time.",
@@ -152,7 +162,8 @@ const experiences = [
     title: "Assistant Marketing Manager",
     company: "Sierra Construction",
     period: "Jan 2003 - Jun 2003",
-    description: "Designed and produced identity and print materials for residential communities, including luxury brochures and 3D renderings.",
+    description:
+      "Designed and produced identity and print materials for residential communities, including luxury brochures and 3D renderings.",
     achievements: [
       "Created photorealistic 3D renderings and floor plans, improving marketing effectiveness.",
       "Worked with AutoCad files to produce high-quality marketing materials.",
@@ -184,19 +195,19 @@ const experiences = [
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
-];
+]
 
 function Experience() {
-  const containerRef = useRef(null);
+  const containerRef = useRef(null)
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"]
-  });
+    offset: ["start end", "end start"],
+  })
 
   return (
     <section id="experience" className="py-20 px-6 relative">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] bg-clip-text text-transparent font-['Space_Grotesk']">
           Work Experience
         </h2>
         <div ref={containerRef} className="relative space-y-6">
@@ -212,14 +223,14 @@ function Experience() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 function ExperienceCard({ title, company, period, description, achievements, index, progress }) {
   const [ref, inView] = useInView({
     triggerOnce: false,
     threshold: 0.2,
-  });
+  })
 
   return (
     <motion.div
@@ -259,7 +270,9 @@ function ExperienceCard({ title, company, period, description, achievements, ind
         <div className="p-6 bg-gradient-to-br from-[#FF6B6B]/10 to-[#4ECDC4]/10">
           <div className="flex items-center gap-2 mb-3">
             <Award className="w-4 h-4 text-[#FF6B6B]" />
-            <span className="font-semibold text-sm bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] bg-clip-text text-transparent">Key Achievements</span>
+            <span className="font-semibold text-sm bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] bg-clip-text text-transparent">
+              Key Achievements
+            </span>
           </div>
           <ul className="space-y-2">
             {achievements.map((achievement, i) => (
@@ -283,8 +296,8 @@ function ExperienceCard({ title, company, period, description, achievements, ind
         <div className="absolute left-1/2 bottom-0 w-px h-6 bg-gradient-to-b from-[#4077E3] to-[#1DC177] transform translate-y-full" />
       )}
     </motion.div>
-  );
+  )
 }
 
-export default Experience;
+export default Experience
 

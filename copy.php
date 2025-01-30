@@ -1,69 +1,70 @@
-<?php
+const fs = require('fs');
+const path = require('path');
 
-$rootDir = __DIR__; // Use the current directory
-$outputFilePath = $rootDir . DIRECTORY_SEPARATOR . 'all_code.txt';
-$directories = ['src'];
+const rootDir = __dirname; // Use the current directory
+const outputFilePath = path.join(rootDir, 'all_code.txt');
+const directories = ['src'];
 
 // Function to get all files recursively from a directory
-function getFiles($dir, &$fileList) {
-    if (!is_dir($dir)) {
-        echo "Directory does not exist: {$dir}\n";
-        return $fileList;
+function getFiles(dir, fileList = []) {
+    if (!fs.existsSync(dir)) {
+        console.log(`Directory does not exist: ${dir}`);
+        return fileList;
     }
 
-    $files = scandir($dir);
+    const files = fs.readdirSync(dir);
 
-    foreach ($files as $file) {
-        if ($file === '.' || $file === '..') continue;
+    files.forEach(file => {
+        if (file === '.' || file === '..') return;
 
-        $filePath = $dir . DIRECTORY_SEPARATOR . $file;
+        const filePath = path.join(dir, file);
 
-        if (is_dir($filePath)) {
-            getFiles($filePath, $fileList);
-        } elseif (preg_match('/\.(js|jsx|tsx|ts|css)$/', $file)) {
-            $fileList[] = $filePath; // Append to the file list
+        if (fs.statSync(filePath).isDirectory()) {
+            getFiles(filePath, fileList);
+        } else if (/\.(js|jsx|tsx|ts|css)$/.test(file)) {
+            fileList.push(filePath); // Append to the file list
         }
-    }
-    return $fileList;
+    });
+
+    return fileList;
 }
 
 // Function to copy code from files into the output file
-function copyCodeToFile($files, $outputFile) {
-    $output = fopen($outputFile, 'w');
-    if (!$output) { // Check if the file was opened successfully
-        die("Could not open output file: " . $outputFile . "\n");
+function copyCodeToFile(files, outputFile) {
+    const output = fs.createWriteStream(outputFile);
+    if (!output) { // Check if the file was opened successfully
+        console.error(`Could not open output file: ${outputFile}`);
+        process.exit(1);
     }
 
-    foreach ($files as $file) {
-        $fileContent = file_get_contents($file);
-        if ($fileContent === false) { // Check if file_get_contents was successful
-            echo "Error reading file: " . $file . "\n";
-            continue; // Skip to the next file
+    files.forEach(file => {
+        try {
+            const fileContent = fs.readFileSync(file, 'utf8');
+            output.write(`\n// --- ${file} ---\n`);
+            output.write(fileContent + '\n\n');
+        } catch (err) {
+            console.error(`Error reading file: ${file}`);
         }
-        fwrite($output, "\n// --- " . $file . " ---\n");
-        fwrite($output, $fileContent . "\n\n");
-    }
+    });
 
-    fclose($output);
-    echo "All code has been copied to {$outputFile}\n";
+    output.end();
+    console.log(`All code has been copied to ${outputFile}`);
 }
 
 // Main execution
-$allFiles = [];
-foreach ($directories as $dir) {
-    $dirPath = $rootDir . DIRECTORY_SEPARATOR . $dir;
-    echo "Checking directory: {$dirPath}\n";
-    if (is_dir($dirPath)) {
-        getFiles($dirPath, $allFiles);
+const allFiles = [];
+directories.forEach(dir => {
+    const dirPath = path.join(rootDir, dir);
+    console.log(`Checking directory: ${dirPath}`);
+    if (fs.existsSync(dirPath) && fs.statSync(dirPath).isDirectory()) {
+        getFiles(dirPath, allFiles);
     } else {
-        echo "Directory \"{$dirPath}\" does not exist.\n";
+        console.log(`Directory "${dirPath}" does not exist.`);
     }
-}
+});
 
-if (count($allFiles) > 0) {
-    copyCodeToFile($allFiles, $outputFilePath);
+if (allFiles.length > 0) {
+    copyCodeToFile(allFiles, outputFilePath);
 } else {
-    echo "No files found in specified directories.\n";
+    console.log('No files found in specified directories.');
 }
-
-?>
