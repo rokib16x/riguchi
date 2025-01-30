@@ -1,15 +1,14 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { motion } from "framer-motion"
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"
 
 function Hero() {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-  };
+  }
 
   // Define the name in a single variable
-  const name = "Ryan Iguchi";
+  const name = "Ryan Iguchi"
 
   return (
     <div id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
@@ -18,7 +17,7 @@ function Hero() {
           <motion.p
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            className="font-mono text-[#4077E3] text-xl mb-2"
+            className="font-mono text-[#00BFFF] text-xl mb-2"
           >
             Hey there! I'm-
           </motion.p>
@@ -58,7 +57,7 @@ function Hero() {
           className="flex-1 flex justify-center md:justify-end mt-8 md:mt-0"
           whileHover={{ scale: 1.05 }}
         >
-          <motion.div 
+          <motion.div
             className="relative group"
             whileHover={{ rotate: 5 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
@@ -69,7 +68,7 @@ function Hero() {
               alt={`${name} - Product Manager & Software Engineer`}
               loading="lazy"
               onError={(e) => {
-                e.target.src = '/fallback-image.png';
+                e.target.src = "/fallback-image.png"
               }}
               className="relative w-64 h-64 md:w-96 md:h-96 rounded-full object-cover transition-transform duration-300 transform group-hover:scale-105"
             />
@@ -77,7 +76,7 @@ function Hero() {
         </motion.div>
       </div>
     </div>
-  );
+  )
 }
 
 function SocialLink({ href, icon, label }) {
@@ -93,7 +92,8 @@ function SocialLink({ href, icon, label }) {
     >
       {icon}
     </motion.a>
-  );
+  )
 }
 
-export default Hero;
+export default Hero
+

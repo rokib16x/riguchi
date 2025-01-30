@@ -1,24 +1,23 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FileText, Download, Eye } from 'lucide-react';
+import { motion } from "framer-motion"
+import { Download, Eye } from "lucide-react"
 
 const resumes = [
   {
-    title: 'Software Engineer',
-    description: 'Technical focus on web development and system architecture',
-    file: '/RYAN IGUCHI_Software_Engineer.pdf'
+    title: "Software Engineer",
+    description: "Technical focus on web development and system architecture",
+    file: "/RYAN IGUCHI_Software_Engineer.pdf",
   },
   {
-    title: 'Product Manager',
-    description: 'Emphasis on product strategy and team leadership',
-    file: '/RYAN IGUCHI_Product_Manager.pdf'
+    title: "Product Manager",
+    description: "Emphasis on product strategy and team leadership",
+    file: "/RYAN IGUCHI_Product_Manager.pdf",
   },
   {
-    title: 'IT Support',
-    description: 'Specializing in cybersecurity and enterprise IT infrastructure',
-    file: '/RYAN IGUCHI_IT Support.pdf'
-  }
-];
+    title: "IT Support",
+    description: "Specializing in cybersecurity and enterprise IT infrastructure",
+    file: "/RYAN IGUCHI_IT Support.pdf",
+  },
+]
 
 function Resume() {
   return (
@@ -28,7 +27,7 @@ function Resume() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']"
+          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent font-['Space_Grotesk']"
         >
           My Resumes
         </motion.h2>
@@ -42,9 +41,11 @@ function Resume() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold mb-2 text-white font-['Space_Grotesk']">{resume.title}</h3>
-              <p className="text-white/80 mb-6 font-['Inter']">{resume.description}</p>
-              
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] bg-clip-text text-transparent font-['Space_Grotesk']">
+                {resume.title}
+              </h3>
+              <p className="text-gray-200 mb-6 font-['Inter']">{resume.description}</p>
+
               <div className="flex gap-4">
                 <motion.a
                   href={resume.file}
@@ -52,12 +53,12 @@ function Resume() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 bg-gradient-to-r from-[#4077E3] to-[#1DC177] hover:from-[#3066D2] hover:to-[#1CAF66] text-white px-4 py-2 rounded-lg transition-colors font-['Inter']"
+                  className="flex items-center gap-2 bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] hover:from-[#00BFFF] hover:to-[#0000FF] text-white px-4 py-2 rounded-lg transition-colors font-['Inter']"
                 >
                   <Eye className="w-4 h-4" />
                   View
                 </motion.a>
-                
+
                 <motion.a
                   href={resume.file}
                   download
@@ -74,8 +75,8 @@ function Resume() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Resume;
+export default Resume
 

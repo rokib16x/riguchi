@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useState } from "react"
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import {
   FaReact,
   FaJs,
@@ -12,8 +12,8 @@ import {
   FaCss3,
   FaBootstrap,
   FaPhp,
-  FaBrain, // Added for Reinforcement Learning
-} from "react-icons/fa";
+  FaBrain,
+} from "react-icons/fa"
 import {
   SiTypescript,
   SiSvelte,
@@ -24,16 +24,16 @@ import {
   SiJira,
   SiTrello,
   SiSlack,
-} from "react-icons/si";
-import { GiNetworkBars, GiSpy } from "react-icons/gi";
-import Lottie from "lottie-react";
+} from "react-icons/si"
+import { GiNetworkBars, GiSpy } from "react-icons/gi"
+import Lottie from "lottie-react"
 
 function Skills() {
-  const [activeCategory, setActiveCategory] = useState("technical");
+  const [activeCategory, setActiveCategory] = useState("technical")
   const [ref, inView] = useInView({
-    triggerOnce: true, // Animations trigger only once
+    triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   const skills = {
     technical: [
@@ -76,24 +76,24 @@ function Skills() {
       { name: "RAG", icon: <FaRobot /> },
       { name: "LLM Integration", icon: <FaRobot /> },
       { name: "Graph Database", icon: <SiGraphql /> },
-      { name: "Reinforcement Learning", icon: <FaBrain /> }, // Added Reinforcement Learning
+      { name: "Reinforcement Learning", icon: <FaBrain /> },
     ],
-  };
+  }
 
   const getBarColor = (category) => {
     switch (category) {
       case "technical":
-        return { gradient: "from-blue-500 to-purple-500", iconColor: "text-blue-500" };
+        return { gradient: "from-[#00FF7F] to-[#00FFFF]", iconColor: "text-[#00FF7F]" }
       case "product":
-        return { gradient: "from-green-500 to-teal-500", iconColor: "text-green-500" };
+        return { gradient: "from-[#00BFFF] to-[#00FA9A]", iconColor: "text-[#00BFFF]" }
       case "security":
-        return { gradient: "from-red-500 to-orange-500", iconColor: "text-red-500" };
+        return { gradient: "from-[#FF00FF] to-[#FFA500]", iconColor: "text-[#FF00FF]" }
       case "ai":
-        return { gradient: "from-pink-500 to-indigo-500", iconColor: "text-pink-500" };
+        return { gradient: "from-[#FFD700] to-[#FF1493]", iconColor: "text-[#FFD700]" }
       default:
-        return { gradient: "from-pink-500 to-purple-500", iconColor: "text-pink-500" };
+        return { gradient: "from-[#FF00FF] to-[#FF4500]", iconColor: "text-[#FF00FF]" }
     }
-  };
+  }
 
   return (
     <section id="skills" className="py-20 px-6 relative overflow-hidden">
@@ -106,12 +106,12 @@ function Skills() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="md:w-1/2"
           >
-            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent font-['Space_Grotesk']">
+            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent font-['Space_Grotesk']">
               Skills & Expertise
             </h2>
-            <p className="text-lg text-white/80 text-center md:text-left font-['Inter']">
-              With extensive experience in both product management and software engineering,
-              I bring a unique blend of technical expertise and strategic thinking.
+            <p className="text-lg text-gray-200 text-center md:text-left font-['Inter']">
+              With extensive experience in both product management and software engineering, I bring a unique blend of
+              technical expertise and strategic thinking.
             </p>
           </motion.div>
           <motion.div
@@ -120,12 +120,7 @@ function Skills() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 relative"
           >
-            <Lottie
-              path="/Animation1.json"
-              loop={true}
-              autoplay={true}
-              className="w-full max-w-md mx-auto"
-            />
+            <Lottie path="/Animation1.json" loop={true} autoplay={true} className="w-full max-w-md mx-auto" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </motion.div>
         </div>
@@ -140,8 +135,8 @@ function Skills() {
               aria-pressed={activeCategory === category}
               className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] ${
                 activeCategory === category
-                  ? "bg-gradient-to-r from-[#4077E3] to-[#1DC177] text-white"
-                  : "bg-white/10 text-white/80 hover:bg-white/20"
+                  ? "bg-gradient-to-r from-[#00FF7F] to-[#00FFFF] text-gray-800"
+                  : "bg-white/10 text-gray-200 hover:bg-white/20"
               }`}
             >
               {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -162,14 +157,14 @@ function Skills() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
 function SkillCard({ name, icon, index, barColor }) {
   const [ref, inView] = useInView({
-    triggerOnce: true, // Animations trigger only once
+    triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   return (
     <motion.div
@@ -184,7 +179,7 @@ function SkillCard({ name, icon, index, barColor }) {
         <div className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-white mb-2 font-['Space_Grotesk']">{name}</h3>
+        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">{name}</h3>
       </div>
       <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
         <motion.div
@@ -195,7 +190,8 @@ function SkillCard({ name, icon, index, barColor }) {
         />
       </div>
     </motion.div>
-  );
+  )
 }
 
-export default Skills;
+export default Skills
+
