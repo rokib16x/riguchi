@@ -1,12 +1,11 @@
-import { motion } from "framer-motion"
-import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa"
+import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 function Contact() {
   return (
     <section id="contact" className="py-20 px-6 text-center relative">
       {/* Background gradient for depth */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-transparent pointer-events-none" />
-
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Content Section */}
@@ -45,11 +44,11 @@ function Contact() {
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="relative group"
+            className="relative group flex justify-center"
           >
             <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#FF00FF] to-[#FFA500] blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" />
             <motion.div
-              className="relative rounded-full overflow-hidden aspect-square"
+              className="relative rounded-full overflow-hidden w-64 h-64" // Reduced size of the image
               whileHover={{ rotate: 5 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
@@ -60,10 +59,9 @@ function Contact() {
                 style={{ objectPosition: "top" }}
                 loading="lazy"
                 onError={(e) => {
-                  e.target.src = "/fallback-image.png"
+                  e.target.src = "/fallback-image.png";
                 }}
               />
-
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
@@ -71,7 +69,7 @@ function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function ContactButton({ href, icon, text }) {
@@ -87,8 +85,7 @@ function ContactButton({ href, icon, text }) {
       {icon}
       {text}
     </motion.a>
-  )
+  );
 }
 
-export default Contact
-
+export default Contact;

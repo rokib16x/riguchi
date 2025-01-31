@@ -1,39 +1,39 @@
-import { useState, useEffect, useCallback, useMemo } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ChevronUp, Home, User, Code, Briefcase, FileText, Mail, ExternalLink } from "lucide-react"
+import React, { useState, useEffect, useCallback, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronUp, Home, User, Code, Briefcase, FileText, Mail, ExternalLink } from "lucide-react";
 
 function Navbar() {
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY
-    setIsVisible(lastScrollY > currentScrollY || currentScrollY < 50)
-    setLastScrollY(currentScrollY)
-    setIsMobileMenuOpen(false)
-  }, [lastScrollY])
+    const currentScrollY = window.scrollY;
+    setIsVisible(lastScrollY > currentScrollY || currentScrollY < 50);
+    setLastScrollY(currentScrollY);
+    setIsMobileMenuOpen(false);
+  }, [lastScrollY]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [handleScroll])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen)
-  }
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const handleNavLinkClick = (e, href) => {
-    e.preventDefault()
-    const target = document.querySelector(href)
+    e.preventDefault();
+    const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" })
+      target.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   const navItems = useMemo(
     () => [
@@ -50,8 +50,8 @@ function Navbar() {
         isExternal: true,
       },
     ],
-    [],
-  )
+    []
+  );
 
   return (
     <AnimatePresence>
@@ -67,14 +67,19 @@ function Navbar() {
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="text-2xl font-bold bg-gradient-to-r from-[#00FF7F] to-[#00FFFF] bg-clip-text text-transparent cursor-pointer font-mono"
+            className="text-2xl font-bold bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent cursor-pointer font-mono"
           >
             {"{RI}"}
           </motion.div>
 
           <div className="hidden md:flex gap-6">
             {navItems.map(({ name, icon, href, isExternal }) => (
-              <NavLink key={name} href={href} isExternal={isExternal} onClick={toggleMobileMenu}>
+              <NavLink
+                key={name}
+                href={href}
+                isExternal={isExternal}
+                onClick={toggleMobileMenu}
+              >
                 <span className="mr-2">{icon}</span>
                 {name}
               </NavLink>
@@ -101,7 +106,12 @@ function Navbar() {
               className="md:hidden absolute top-16 right-6 bg-background/90 backdrop-blur-md rounded-lg p-4 border border-white/10"
             >
               {navItems.map(({ name, icon, href, isExternal }) => (
-                <NavLink key={name} href={href} isExternal={isExternal} onClick={toggleMobileMenu}>
+                <NavLink
+                  key={name}
+                  href={href}
+                  isExternal={isExternal}
+                  onClick={toggleMobileMenu}
+                >
                   <span className="mr-2">{icon}</span>
                   {name}
                 </NavLink>
@@ -122,7 +132,7 @@ function Navbar() {
         <ChevronUp className="w-6 h-6" />
       </motion.button>
     </AnimatePresence>
-  )
+  );
 }
 
 function NavLink({ href, children, isExternal, onClick }) {
@@ -131,13 +141,13 @@ function NavLink({ href, children, isExternal, onClick }) {
       href={href}
       onClick={(e) => {
         if (!isExternal) {
-          e.preventDefault()
-          const target = document.querySelector(href)
+          e.preventDefault();
+          const target = document.querySelector(href);
           if (target) {
-            target.scrollIntoView({ behavior: "smooth" })
+            target.scrollIntoView({ behavior: "smooth" });
           }
         }
-        onClick?.()
+        onClick?.();
       }}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noopener noreferrer" : undefined}
@@ -145,10 +155,9 @@ function NavLink({ href, children, isExternal, onClick }) {
       className="relative font-medium text-white/80 hover:text-white transition-colors font-sans group flex items-center"
     >
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF00FF] to-[#FFA500] group-hover:w-full transition-all duration-300" />
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500 group-hover:w-full transition-all duration-300" />
     </motion.a>
-  )
+  );
 }
 
-export default Navbar
-
+export default Navbar;

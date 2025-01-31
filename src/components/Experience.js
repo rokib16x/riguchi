@@ -1,6 +1,6 @@
-import { useRef } from "react"
-import { motion, useScroll, useSpring, useInView } from "framer-motion"
-import { Calendar, Building2, Award, Briefcase, Wifi, CheckCircle2 } from "lucide-react"
+import { useRef } from "react";
+import { motion, useScroll, useSpring, useInView } from "framer-motion";
+import { Calendar, Building2, Award, Briefcase, Wifi, CheckCircle2 } from "lucide-react";
 
 const experiences = [
   {
@@ -197,17 +197,17 @@ const experiences = [
 ]
 
 function Experience() {
-  const containerRef = useRef(null)
+  const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
-  })
+  });
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
-  })
+  });
 
   return (
     <section id="experience" className="py-20 px-6 relative">
@@ -222,25 +222,25 @@ function Experience() {
             transition={{ duration: 0.5 }}
             className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-6 mb-8"
           >
-            <div className="flex items-center gap-2 text-gray-200">
-              <Wifi className="w-5 h-5 text-[#00FA9A]" />
-              <span className="font-semibold">Preferred Work Environment:</span>
+            <div className="flex items-center gap-2 text-gray-200 text-base">
+              <Wifi className="w-6 h-6 text-[#00FA9A]" />
+              <span className="font-semibold text-lg">Preferred Work Environment:</span>
               <span>Remote or hybrid opportunities that foster innovation and collaboration</span>
             </div>
           </motion.div>
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} {...experience} index={index} totalExperiences={experiences.length} />
           ))}
-          <motion.div className="absolute left-9 top-0 bottom-0 w-0.5 bg-gray-600" style={{ scaleY: scaleX }} />
+          <motion.div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-600" style={{ scaleY: scaleX }} />
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-function ExperienceCard({ title, company, period, description, achievements, index, totalExperiences }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.1, rootMargin: "0px 0px -10% 0px" })
+function ExperienceCard({ title, company, period, description, achievements }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.1, rootMargin: "0px 0px -10% 0px" });
 
   return (
     <motion.div
@@ -248,56 +248,51 @@ function ExperienceCard({ title, company, period, description, achievements, ind
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5 }}
-      className="relative pl-10"
+      className="relative"
     >
-      <div className="absolute left-0 top-0 w-4 h-4 bg-[#00FA9A] rounded-full z-10" />
       <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300 overflow-hidden">
         {/* Header Section */}
         <div className="p-6 border-b border-white/10">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-grow">
-              <h3 className="text-xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk'] mb-2">
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk'] mb-2">
                 {title}
               </h3>
-              <div className="flex flex-wrap gap-4 text-sm text-gray-300">
-                <div className="flex items-center gap-1">
-                  <Building2 className="w-4 h-4" />
-                  <span>{company}</span>
+              <div className="flex flex-wrap gap-4 text-base text-gray-300">
+                <div className="flex items-center gap-2">
+                  <Building2 className="w-5 h-5" />
+                  <span className="font-semibold text-[#FFA500]">{company}</span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-5 h-5" />
                   <span>{period}</span>
                 </div>
               </div>
             </div>
-            <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center">
-              <Briefcase className="w-6 h-6 text-[#00FA9A]" />
-            </div>
           </div>
-          <p className="mt-4 text-gray-200 text-sm">{description}</p>
+          <p className="mt-4 text-gray-200 text-base">{description}</p>
         </div>
 
         {/* Achievements Section */}
         <div className="p-6 bg-gradient-to-br from-[#FF6B6B]/10 to-[#4ECDC4]/10">
           <div className="flex items-center gap-2 mb-3">
-            <Award className="w-4 h-4 text-[#FFD700]" />
-            <span className="font-semibold text-sm bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent">
+            <Award className="w-5 h-5 text-[#FFD700]" />
+            <span className="font-semibold text-base bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent">
               Key Achievements
             </span>
           </div>
           <ul className="space-y-2">
             {achievements.map((achievement, i) => (
-              <li key={i} className="grid grid-cols-[24px_1fr] items-start gap-3 text-sm">
+              <li key={i} className="flex items-start gap-3 text-base">
                 <CheckCircle2 className="w-5 h-5 text-[#00FA9A]" />
-                <span className="text-gray-200 pt-0.5">{achievement}</span>
+                <span className="text-gray-200">{achievement}</span>
               </li>
             ))}
           </ul>
         </div>
       </div>
     </motion.div>
-  )
+  );
 }
 
-export default Experience
-
+export default Experience;

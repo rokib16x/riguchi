@@ -1,43 +1,25 @@
-import React from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const LoadingAnimation = () => {
-  const [sequence, setSequence] = React.useState(1)
-  const nameArray = "Ryan Iguchi".split("") // Split name into characters
+  const [sequence, setSequence] = React.useState(1);
 
   React.useEffect(() => {
-    const timers = [setTimeout(() => setSequence(2), 3000), setTimeout(() => setSequence(3), 5000)]
-    return () => timers.forEach((timer) => clearTimeout(timer))
-  }, [])
+    const timers = [
+      setTimeout(() => setSequence(2), 3000),
+      setTimeout(() => setSequence(3), 5000),
+    ];
+    return () => timers.forEach((timer) => clearTimeout(timer));
+  }, []);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  }
+  // Define the name in a single variable
+  const name = "Ryan Iguchi";
 
-  const letterVariants = {
-    hidden: {
-      y: 20,
-      opacity: 0,
-      rotateX: -90,
-    },
-    visible: {
-      y: 0,
-      opacity: 1,
-      rotateX: 0,
-      transition: {
-        type: "spring",
-        damping: 10,
-        stiffness: 100,
-      },
-    },
-  }
+  // Fade-in and upward motion animation
+  const fadeInUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+  };
 
   return (
     <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
@@ -56,73 +38,56 @@ const LoadingAnimation = () => {
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full">
         <AnimatePresence mode="wait">
           {sequence === 1 && (
             <motion.div className="flex flex-col items-center" exit={{ scale: 1.2, opacity: 0 }}>
-              <motion.div className="flex" variants={containerVariants} initial="hidden" animate="visible">
-                {nameArray.map((letter, index) => (
-                  <motion.span
-                    key={index}
-                    variants={letterVariants}
-                    className={`text-7xl font-bold bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] text-transparent bg-clip-text ${
-                      letter === " " ? "mx-2" : ""
-                    }`}
-                    style={{
-                      textShadow: "none",
-                      letterSpacing: "-0.03em",
-                      display: "inline-block",
-                    }}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </motion.div>
-
+              {/* Name with Smooth Gradient */}
+              <motion.h1
+                initial={fadeInUp.initial}
+                animate={fadeInUp.animate}
+                transition={{ delay: 0.2 }}
+                className={`text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] bg-clip-text text-transparent cursor-default`}
+                whileHover={{ scale: 1.05 }}
+              >
+                {name}.
+              </motion.h1>
               {/* Title */}
-              <motion.div
-                className="text-xl text-white/80 mt-6 tracking-wide font-serif"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 }}
+              <motion.h2
+                initial={fadeInUp.initial}
+                animate={fadeInUp.animate}
+                transition={{ delay: 0.4 }}
+                className="text-2xl md:text-3xl text-white/80 font-medium mb-12"
               >
                 Product Manager & Software Engineer
-              </motion.div>
+              </motion.h2>
             </motion.div>
           )}
-
           {sequence >= 2 && (
             <motion.div
               className="flex flex-col items-center"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
             >
-              <motion.div className="flex" variants={containerVariants} initial="hidden" animate="visible">
-                {nameArray.map((letter, index) => (
-                  <motion.span
-                    key={index}
-                    variants={letterVariants}
-                    className={`text-7xl font-bold bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] text-transparent bg-clip-text ${
-                      letter === " " ? "mx-2" : ""
-                    }`}
-                    style={{
-                      letterSpacing: "-0.03em",
-                      display: "inline-block",
-                    }}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </motion.div>
-
-              <motion.div
-                className="text-xl text-white/80 mt-6 tracking-wide font-serif"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+              {/* Name with Smooth Gradient */}
+              <motion.h1
+                initial={fadeInUp.initial}
+                animate={fadeInUp.animate}
+                transition={{ delay: 0.2 }}
+                className={`text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] bg-clip-text text-transparent cursor-default`}
+                whileHover={{ scale: 1.05 }}
+              >
+                {name}.
+              </motion.h1>
+              {/* Title */}
+              <motion.h2
+                initial={fadeInUp.initial}
+                animate={fadeInUp.animate}
+                transition={{ delay: 0.4 }}
+                className="text-2xl md:text-3xl text-white/80 font-medium mb-12"
               >
                 Product Manager & Software Engineer
-              </motion.div>
+              </motion.h2>
             </motion.div>
           )}
         </AnimatePresence>
@@ -148,8 +113,7 @@ const LoadingAnimation = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LoadingAnimation
-
+export default LoadingAnimation;

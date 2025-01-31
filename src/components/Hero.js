@@ -7,7 +7,6 @@ function Hero() {
     animate: { opacity: 1, y: 0 },
   }
 
-  // Define the name in a single variable
   const name = "Ryan Iguchi"
 
   return (
@@ -21,7 +20,6 @@ function Hero() {
           >
             Hey there! I'm-
           </motion.p>
-          {/* Render the name with a single gradient */}
           <motion.h1
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
@@ -55,12 +53,17 @@ function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.8 }}
           className="flex-1 flex justify-center md:justify-end mt-8 md:mt-0"
-          whileHover={{ scale: 1.05 }}
         >
           <motion.div
             className="relative group"
-            whileHover={{ rotate: 5 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            whileHover={{ 
+              rotate: 2,
+              transition: { 
+                type: "spring",
+                stiffness: 300,
+                damping: 10
+              }
+            }}
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-[#4077E3] to-[#1DC177] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" />
             <img
@@ -70,7 +73,7 @@ function Hero() {
               onError={(e) => {
                 e.target.src = "/fallback-image.png"
               }}
-              className="relative w-64 h-64 md:w-96 md:h-96 rounded-full object-cover transition-transform duration-300 transform group-hover:scale-105"
+              className="relative w-80 h-80 md:w-[500px] md:h-[500px] rounded-full object-cover transition-transform duration-300 transform"
             />
           </motion.div>
         </motion.div>
@@ -96,4 +99,3 @@ function SocialLink({ href, icon, label }) {
 }
 
 export default Hero
-

@@ -13,7 +13,7 @@ const resumes = [
     file: "/RYAN IGUCHI_Product_Manager.pdf",
   },
   {
-    title: "IT Support",
+    title: "IT Manager",
     description: "Specializing in cybersecurity and enterprise IT infrastructure",
     file: "/RYAN IGUCHI_IT Support.pdf",
   },
