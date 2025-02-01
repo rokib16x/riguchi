@@ -16,7 +16,7 @@ function Hero() {
           <motion.p
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            className="font-mono text-[#00BFFF] text-xl mb-2"
+            className="font-mono text-[#BDBDBD] text-xl mb-2"
           >
             Hey there! I'm-
           </motion.p>

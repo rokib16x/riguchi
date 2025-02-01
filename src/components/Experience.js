@@ -224,8 +224,8 @@ function Experience() {
           >
             <div className="flex items-center gap-2 text-gray-200 text-base">
               <Wifi className="w-6 h-6 text-[#00FA9A]" />
-              <span className="font-semibold text-lg">Preferred Work Environment:</span>
-              <span>Remote or hybrid opportunities that foster innovation and collaboration</span>
+              <span className="font-semibold text-lg">Preferred:</span>
+              <span>Remote or hybrid opportunities.</span>
             </div>
           </motion.div>
           {experiences.map((experience, index) => (
@@ -274,17 +274,17 @@ function ExperienceCard({ title, company, period, description, achievements }) {
         </div>
 
         {/* Achievements Section */}
-        <div className="p-6 bg-gradient-to-br from-[#FF6B6B]/10 to-[#4ECDC4]/10">
-          <div className="flex items-center gap-2 mb-3">
+        <div className="p-6 bg-gradient-to-br from-green-500/10 to-yellow-500/10">
+        <div className="flex items-center gap-2 mb-3">
             <Award className="w-5 h-5 text-[#FFD700]" />
-            <span className="font-semibold text-base bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent">
+            <span className="font-semibold text-base bg-gradient-to-r from-[#00FF7F] to-[#00FFFF] bg-clip-text text-transparent">
               Key Achievements
             </span>
           </div>
           <ul className="space-y-2">
             {achievements.map((achievement, i) => (
               <li key={i} className="flex items-start gap-3 text-base">
-                <CheckCircle2 className="w-5 h-5 text-[#00FA9A]" />
+                <CheckCircle2 className="w-5 h-5 text-[#FFA500]" />
                 <span className="text-gray-200">{achievement}</span>
               </li>
             ))}

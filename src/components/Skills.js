@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import {
@@ -13,6 +13,7 @@ import {
   FaBootstrap,
   FaPhp,
   FaBrain,
+  FaWordpress,
 } from "react-icons/fa"
 import {
   SiTypescript,
@@ -34,9 +35,35 @@ function Skills() {
     triggerOnce: true,
     threshold: 0.1,
   })
+  const skillsRef = useRef(null)
+
+  useEffect(() => {
+    const storedCategory = localStorage.getItem("activeSkillCategory")
+    if (storedCategory) {
+      setActiveCategory(storedCategory)
+      localStorage.removeItem("activeSkillCategory")
+
+      // Scroll to the skills section
+      if (skillsRef.current) {
+        skillsRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    }
+  }, [])
 
   const skills = {
+    management: [
+      { name: "Technical Project Management", icon: <FaProjectDiagram /> },
+      { name: "Product Strategy", icon: <FaProjectDiagram /> },
+      { name: "Agile Methodology", icon: <SiJira /> },
+      { name: "Scrum Master", icon: <SiTrello /> },
+      { name: "Backlog Management", icon: <SiJira /> },
+      { name: "User Research", icon: <FaProjectDiagram /> },
+      { name: "Data Analysis", icon: <FaProjectDiagram /> },
+      { name: "Stakeholder Communication", icon: <SiSlack /> },
+      { name: "Brand Development", icon: <FaProjectDiagram /> },
+    ],
     technical: [
+      { name: "WordPress", icon: <FaWordpress /> },
       { name: "TypeScript", icon: <SiTypescript /> },
       { name: "React", icon: <FaReact /> },
       { name: "JavaScript", icon: <FaJs /> },
@@ -49,17 +76,6 @@ function Skills() {
       { name: "Next.js", icon: <SiNextdotjs /> },
       { name: "Vue.js", icon: <SiVuedotjs /> },
       { name: "PHP", icon: <FaPhp /> },
-    ],
-    product: [
-      { name: "Technical Project Management", icon: <FaProjectDiagram /> },
-      { name: "Product Strategy", icon: <FaProjectDiagram /> },
-      { name: "Agile Methodology", icon: <SiJira /> },
-      { name: "Scrum Master", icon: <SiTrello /> },
-      { name: "Backlog Management", icon: <SiJira /> },
-      { name: "User Research", icon: <FaProjectDiagram /> },
-      { name: "Data Analysis", icon: <FaProjectDiagram /> },
-      { name: "Stakeholder Communication", icon: <SiSlack /> },
-      { name: "Brand Development", icon: <FaProjectDiagram /> },
     ],
     security: [
       { name: "SDLC", icon: <FaShieldAlt /> },
@@ -84,7 +100,7 @@ function Skills() {
     switch (category) {
       case "technical":
         return { gradient: "from-[#00FF7F] to-[#00FFFF]", iconColor: "text-[#00FF7F]" }
-      case "product":
+      case "management":
         return { gradient: "from-[#00BFFF] to-[#00FA9A]", iconColor: "text-[#00BFFF]" }
       case "security":
         return { gradient: "from-[#FF00FF] to-[#FFA500]", iconColor: "text-[#FF00FF]" }
@@ -96,7 +112,7 @@ function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 px-6 relative overflow-hidden">
+    <section id="skills" ref={skillsRef} className="py-20 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
           <motion.div

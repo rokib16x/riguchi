@@ -25,7 +25,8 @@ function Contact() {
             >
               I'm always open to new opportunities and collaborations.
               <br />
-              Feel free to reach out and let's create something amazing together!
+              Feel free to reach out and let's create something amazing
+              together!
             </motion.p>
             <motion.div
               initial={{ opacity: 0 }}
@@ -33,12 +34,23 @@ function Contact() {
               transition={{ delay: 0.4 }}
               className="flex gap-6 justify-start"
             >
-              <ContactButton href="https://www.linkedin.com/in/ryaniguchi/" icon={<FaLinkedin />} text="LinkedIn" />
-              <ContactButton href="https://github.com/yourusername" icon={<FaGithub />} text="GitHub" />
-              <ContactButton href="mailto:riguchijob@gmail.com" icon={<FaEnvelope />} text="Email" />
+              <ContactButton
+                href="https://www.linkedin.com/in/ryaniguchi/"
+                icon={<FaLinkedin />}
+                text="LinkedIn"
+              />
+              <ContactButton
+                href="https://github.com/yourusername"
+                icon={<FaGithub />}
+                text="GitHub"
+              />
+              <ContactButton
+                href="mailto:riguchijob@gmail.com"
+                icon={<FaEnvelope />}
+                text="Email"
+              />
             </motion.div>
           </div>
-
           {/* Image Section */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -46,9 +58,8 @@ function Contact() {
             transition={{ duration: 0.8 }}
             className="relative group flex justify-center"
           >
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#FF00FF] to-[#FFA500] blur-lg opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" />
             <motion.div
-              className="relative rounded-full overflow-hidden w-64 h-64" // Reduced size of the image
+              className="relative rounded-full overflow-hidden w-64 h-64"
               whileHover={{ rotate: 5 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
@@ -62,8 +73,6 @@ function Contact() {
                   e.target.src = "/fallback-image.png";
                 }}
               />
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </motion.div>
           </motion.div>
         </div>
@@ -80,7 +89,7 @@ function ContactButton({ href, icon, text }) {
       rel="noopener noreferrer"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="flex items-center gap-2 bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] hover:from-[#00BFFF] hover:to-[#0000FF] text-white px-6 py-3 rounded-lg transition-colors font-['Inter']"
+      className="flex items-center gap-2 bg-gradient-to-r from-[#F5F5F5] to-[#E0E0E0] hover:from-[#E0E0E0] hover:to-[#BDBDBD] text-black px-4 py-2 rounded-lg transition-all duration-300 font-['Inter']"
     >
       {icon}
       {text}
