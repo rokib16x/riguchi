@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   FaReact,
   FaJs,
@@ -14,7 +14,7 @@ import {
   FaPhp,
   FaBrain,
   FaWordpress,
-} from "react-icons/fa"
+} from "react-icons/fa";
 import {
   SiTypescript,
   SiSvelte,
@@ -25,30 +25,33 @@ import {
   SiJira,
   SiTrello,
   SiSlack,
-} from "react-icons/si"
-import { GiNetworkBars, GiSpy } from "react-icons/gi"
-import Lottie from "lottie-react"
+} from "react-icons/si";
+import { GiNetworkBars, GiSpy } from "react-icons/gi";
+import Lottie from "lottie-react";
 
 function Skills() {
-  const [activeCategory, setActiveCategory] = useState("technical")
+  const [activeCategory, setActiveCategory] = useState("management");
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
-  const skillsRef = useRef(null)
+  });
+  const skillsRef = useRef(null);
 
   useEffect(() => {
-    const storedCategory = localStorage.getItem("activeSkillCategory")
+    const storedCategory = localStorage.getItem("activeSkillCategory");
     if (storedCategory) {
-      setActiveCategory(storedCategory)
-      localStorage.removeItem("activeSkillCategory")
+      setActiveCategory(storedCategory);
+      localStorage.removeItem("activeSkillCategory");
 
       // Scroll to the skills section
       if (skillsRef.current) {
-        skillsRef.current.scrollIntoView({ behavior: "smooth", block: "start" })
+        skillsRef.current.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
       }
     }
-  }, [])
+  }, []);
 
   const skills = {
     management: [
@@ -94,25 +97,40 @@ function Skills() {
       { name: "Graph Database", icon: <SiGraphql /> },
       { name: "Reinforcement Learning", icon: <FaBrain /> },
     ],
-  }
+  };
 
   const getBarColor = (category) => {
     switch (category) {
       case "technical":
-        return { gradient: "from-[#00FF7F] to-[#00FFFF]", iconColor: "text-[#00FF7F]" }
+        return {
+          gradient: "from-[#00FF7F] to-[#00FFFF]",
+          iconColor: "text-[#00FF7F]",
+        };
       case "management":
-        return { gradient: "from-[#00BFFF] to-[#00FA9A]", iconColor: "text-[#00BFFF]" }
+        return {
+          gradient: "from-[#00BFFF] to-[#00FA9A]",
+          iconColor: "text-[#00BFFF]",
+        };
       case "security":
-        return { gradient: "from-[#FF00FF] to-[#FFA500]", iconColor: "text-[#FF00FF]" }
+        return {
+          gradient: "from-[#FF00FF] to-[#FFA500]",
+          iconColor: "text-[#FF00FF]",
+        };
       case "ai":
-        return { gradient: "from-[#FFD700] to-[#FF1493]", iconColor: "text-[#FFD700]" }
+        return {
+          gradient: "from-[#FFD700] to-[#FF1493]",
+          iconColor: "text-[#FFD700]",
+        };
       default:
-        return { gradient: "from-[#FF00FF] to-[#FF4500]", iconColor: "text-[#FF00FF]" }
+        return {
+          gradient: "from-[#FF00FF] to-[#FF4500]",
+          iconColor: "text-[#FF00FF]",
+        };
     }
-  }
+  };
 
   return (
-    <section id="skills" ref={skillsRef} className="py-20 px-6 relative overflow-hidden">
+    <section ref={skillsRef} className="py-20 px-6 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-12 mb-16">
           <motion.div
@@ -126,8 +144,9 @@ function Skills() {
               Skills & Expertise
             </h2>
             <p className="text-lg text-gray-200 text-center md:text-left font-['Inter']">
-              With extensive experience in both product management and software engineering, I bring a unique blend of
-              technical expertise and strategic thinking.
+              With extensive experience in both product management and software
+              engineering, I bring a unique blend of technical expertise and
+              strategic thinking.
             </p>
           </motion.div>
           <motion.div
@@ -136,15 +155,21 @@ function Skills() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 relative"
           >
-            <Lottie path="/Animation1.json" loop={true} autoplay={true} className="w-full max-w-md mx-auto" />
+            <Lottie
+              path="/Animation1.json"
+              loop={true}
+              autoplay={true}
+              className="w-full max-w-md mx-auto"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </motion.div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div id="skills" className="flex flex-wrap justify-center gap-4 mb-12">
           {Object.keys(skills).map((category) => (
             <motion.button
               key={category}
+              id={`name_${category}`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
@@ -173,14 +198,14 @@ function Skills() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function SkillCard({ name, icon, index, barColor }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <motion.div
@@ -192,10 +217,14 @@ function SkillCard({ name, icon, index, barColor }) {
       className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between h-full"
     >
       <div className="flex flex-col items-center text-center">
-        <div className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+        <div
+          className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}
+        >
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">{name}</h3>
+        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">
+          {name}
+        </h3>
       </div>
       <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
         <motion.div
@@ -206,8 +235,7 @@ function SkillCard({ name, icon, index, barColor }) {
         />
       </div>
     </motion.div>
-  )
+  );
 }
 
-export default Skills
-
+export default Skills;
