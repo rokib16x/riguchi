@@ -1,16 +1,19 @@
-import { motion } from "framer-motion"
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa"
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Hero() {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-  }
+  };
 
-  const name = "Ryan Iguchi"
+  const name = "Ryan Iguchi";
 
   return (
-    <div id="home" className="min-h-screen flex items-center justify-center px-6 pt-20">
+    <div
+      id="home"
+      className="min-h-screen flex items-center justify-center px-6 pt-20"
+    >
       <div className="max-w-7xl w-full flex flex-col md:flex-row items-center justify-between">
         <div className="flex-1 text-center md:text-left">
           <motion.p
@@ -24,7 +27,7 @@ function Hero() {
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
             transition={{ delay: 0.2 }}
-            className={`text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#00FF7F] to-[#00FFFF] bg-clip-text text-transparent font-['Space_Grotesk'] cursor-default`}
+            className={`text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#FFD700] to-[#FF4500] bg-clip-text text-transparent font-['Space_Grotesk'] cursor-default`}
             whileHover={{ scale: 1.05 }}
           >
             {name}.
@@ -43,9 +46,21 @@ function Hero() {
             transition={{ delay: 0.6 }}
             className="flex justify-center md:justify-start gap-4"
           >
-            <SocialLink href="https://github.com" icon={<FaGithub />} label="GitHub" />
-            <SocialLink href="https://www.linkedin.com/in/ryaniguchi/" icon={<FaLinkedin />} label="LinkedIn" />
-            <SocialLink href="mailto:riguchijob@gmail.com" icon={<FaEnvelope />} label="Email" />
+            <SocialLink
+              href="https://github.com"
+              icon={<FaGithub />}
+              label="GitHub"
+            />
+            <SocialLink
+              href="https://www.linkedin.com/in/ryaniguchi/"
+              icon={<FaLinkedin />}
+              label="LinkedIn"
+            />
+            <SocialLink
+              href="mailto:riguchijob@gmail.com"
+              icon={<FaEnvelope />}
+              label="Email"
+            />
           </motion.div>
         </div>
         <motion.div
@@ -56,13 +71,13 @@ function Hero() {
         >
           <motion.div
             className="relative group"
-            whileHover={{ 
+            whileHover={{
               rotate: 2,
-              transition: { 
+              transition: {
                 type: "spring",
                 stiffness: 300,
-                damping: 10
-              }
+                damping: 10,
+              },
             }}
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-[#4077E3] to-[#1DC177] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" />
@@ -71,7 +86,7 @@ function Hero() {
               alt={`${name} - Product Manager & Software Engineer`}
               loading="lazy"
               onError={(e) => {
-                e.target.src = "/fallback-image.png"
+                e.target.src = "/fallback-image.png";
               }}
               className="relative w-80 h-80 md:w-[500px] md:h-[500px] rounded-full object-cover transition-transform duration-300 transform"
             />
@@ -79,7 +94,7 @@ function Hero() {
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
 
 function SocialLink({ href, icon, label }) {
@@ -95,7 +110,7 @@ function SocialLink({ href, icon, label }) {
     >
       {icon}
     </motion.a>
-  )
+  );
 }
 
-export default Hero
+export default Hero;

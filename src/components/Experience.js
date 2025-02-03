@@ -1,8 +1,28 @@
 import { useRef } from "react";
 import { motion, useScroll, useSpring, useInView } from "framer-motion";
-import { Calendar, Building2, Award, Briefcase, Wifi, CheckCircle2 } from "lucide-react";
+import {
+  Calendar,
+  Building2,
+  Award,
+  Briefcase,
+  Wifi,
+  CheckCircle2,
+} from "lucide-react";
 
 const experiences = [
+  {
+    title: "Product Manager",
+    company: "HomeBuilder.app",
+    period: "Feb 2023 - Feb 2024",
+    description:
+      "Led end-to-end product development of modern web applications for builders, architects, and contractors using Agile/Scrum methodologies.",
+    achievements: [
+      "Architected scalable solutions using Svelte, Strapi, Node.js, and ModuleFederation, ensuring optimal performance and user experience.",
+      "Managed cross-functional teams through full product lifecycle, from conception to deployment, using data-driven decision making.",
+      "Established product roadmap and sprint planning processes, resulting in consistent delivery of high-value features.",
+    ],
+    color: "from-[#4077E3] to-[#1DC177]",
+  },
   {
     title: "Senior Software Engineer",
     company: "Maria's Place",
@@ -13,6 +33,19 @@ const experiences = [
       "Implemented CI/CD pipelines and automated testing tools, improving deployment efficiency by 40%.",
       "Designed user-friendly interfaces using React.js, Angular, and Vue.js, increasing user engagement by 25%.",
       "Integrated machine learning models into applications, enhancing functionality and user experience.",
+    ],
+    color: "from-[#4077E3] to-[#1DC177]",
+  },
+  {
+    title: "Project Manager and UX Director",
+    company: "WP Superheroes",
+    period: "May 2017 - Jun 2023",
+    description:
+      "Led cross-functional team of 5 in developing custom responsive web applications with complex API integrations.",
+    achievements: [
+      "Implemented Agile/Scrum methodologies to improve project delivery efficiency and team collaboration.",
+      "Managed client relationships and communications while ensuring alignment between business needs and technical solutions.",
+      "Oversaw security implementations including cloud-based incremental backups and WordPress security hardening.",
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
@@ -33,23 +66,12 @@ const experiences = [
     title: "Game Developer",
     company: "Maria's Place",
     period: "Jul 2013 - Jun 2014",
-    description: "Developed physical and digital therapeutic activity products, including mobile games.",
+    description:
+      "Developed physical and digital therapeutic activity products, including mobile games.",
     achievements: [
       "Designed and developed 2 mobile games: Apple Catch and Smoothie Shack.",
       "Created wooden puzzles and bean bag games for therapeutic use.",
       "Focused on user experience and accessibility in game design.",
-    ],
-    color: "from-[#4077E3] to-[#1DC177]",
-  },
-  {
-    title: "Software Engineer | Product Manager",
-    company: "WordPress Superheroes",
-    period: "Jan 2017 - Jul 2023",
-    description: "Developed custom web apps for small businesses and led Agile teams as a Scrum Product Owner.",
-    achievements: [
-      "Designed and implemented a cloud-based solution using AWS services, reducing hosting costs by 30%.",
-      "Promoted team skill development through technical education and mentorship.",
-      "Improved client satisfaction by delivering projects on time and within budget.",
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
@@ -174,7 +196,8 @@ const experiences = [
     title: "Frontend Web Programmer",
     company: "American Standard Brands",
     period: "Nov 2000 - Jun 2002",
-    description: "Built and managed a multilingual website with interactive web objects and eCommerce programming.",
+    description:
+      "Built and managed a multilingual website with interactive web objects and eCommerce programming.",
     achievements: [
       "Developed a 100+ page website in 7 languages, increasing global reach.",
       "Produced animations for TV commercials, enhancing brand visibility.",
@@ -186,7 +209,8 @@ const experiences = [
     title: "Web Programmer, API Programmer & Email Marketing",
     company: "Boulder Studios",
     period: "Jan 1999 - Dec 2000",
-    description: "Developed real estate websites, eCommerce solutions, and managed email marketing campaigns.",
+    description:
+      "Developed real estate websites, eCommerce solutions, and managed email marketing campaigns.",
     achievements: [
       "Integrated multiple MLS systems, improving data accuracy and accessibility.",
       "Developed a custom ASP site with full checkout functionality, increasing sales by 20%.",
@@ -194,7 +218,7 @@ const experiences = [
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
-]
+];
 
 function Experience() {
   const containerRef = useRef(null);
@@ -203,11 +227,6 @@ function Experience() {
     offset: ["start end", "end start"],
   });
 
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
 
   return (
     <section id="experience" className="py-20 px-6 relative">
@@ -223,15 +242,20 @@ function Experience() {
             className="bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 p-6 mb-8"
           >
             <div className="flex items-center gap-2 text-gray-200 text-base">
-              <Wifi className="w-6 h-6 text-[#00FA9A]" />
+              <Wifi className="w-6 h-6 text-[#FFA500]" />
               <span className="font-semibold text-lg">Preferred:</span>
               <span>Remote or hybrid opportunities.</span>
             </div>
           </motion.div>
           {experiences.map((experience, index) => (
-            <ExperienceCard key={index} {...experience} index={index} totalExperiences={experiences.length} />
+            <ExperienceCard
+              key={index}
+              {...experience}
+              index={index}
+              totalExperiences={experiences.length}
+            />
           ))}
-          <motion.div className="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-600" style={{ scaleY: scaleX }} />
+
         </div>
       </div>
     </section>
@@ -240,7 +264,11 @@ function Experience() {
 
 function ExperienceCard({ title, company, period, description, achievements }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1, rootMargin: "0px 0px -10% 0px" });
+  const isInView = useInView(ref, {
+    once: true,
+    amount: 0.1,
+    rootMargin: "0px 0px -10% 0px",
+  });
 
   return (
     <motion.div
@@ -261,7 +289,9 @@ function ExperienceCard({ title, company, period, description, achievements }) {
               <div className="flex flex-wrap gap-4 text-base text-gray-300">
                 <div className="flex items-center gap-2">
                   <Building2 className="w-5 h-5" />
-                  <span className="font-semibold text-[#FFA500]">{company}</span>
+                  <span className="font-semibold text-[#FFA500]">
+                    {company}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Calendar className="w-5 h-5" />
@@ -275,9 +305,9 @@ function ExperienceCard({ title, company, period, description, achievements }) {
 
         {/* Achievements Section */}
         <div className="p-6 bg-gradient-to-br from-green-500/10 to-yellow-500/10">
-        <div className="flex items-center gap-2 mb-3">
+          <div className="flex items-center gap-2 mb-3">
             <Award className="w-5 h-5 text-[#FFD700]" />
-            <span className="font-semibold text-base bg-gradient-to-r from-[#00FF7F] to-[#00FFFF] bg-clip-text text-transparent">
+            <span className="font-semibold text-base text-[#FFA500]">
               Key Achievements
             </span>
           </div>
@@ -296,3 +326,4 @@ function ExperienceCard({ title, company, period, description, achievements }) {
 }
 
 export default Experience;
+
