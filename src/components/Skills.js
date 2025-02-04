@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useState, useEffect, useRef } from "react"
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import {
   FaReact,
   FaJs,
@@ -14,7 +14,11 @@ import {
   FaPhp,
   FaBrain,
   FaWordpress,
-} from "react-icons/fa";
+  FaDatabase,
+  FaCode,
+  FaPaintBrush,
+  FaVideo,
+} from "react-icons/fa"
 import {
   SiTypescript,
   SiSvelte,
@@ -25,33 +29,31 @@ import {
   SiJira,
   SiTrello,
   SiSlack,
-} from "react-icons/si";
-import { GiNetworkBars, GiSpy } from "react-icons/gi";
-import Lottie from "lottie-react";
+} from "react-icons/si"
+import { GiNetworkBars, GiSpy } from "react-icons/gi"
+import Lottie from "lottie-react"
 
 function Skills() {
-  const [activeCategory, setActiveCategory] = useState("management");
+  const [activeCategory, setActiveCategory] = useState("management")
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
-  const skillsRef = useRef(null);
+  })
+  const skillsRef = useRef(null)
 
   useEffect(() => {
-    const storedCategory = localStorage.getItem("activeSkillCategory");
+    const storedCategory = localStorage.getItem("activeSkillCategory")
     if (storedCategory) {
-      setActiveCategory(storedCategory);
-      localStorage.removeItem("activeSkillCategory");
+      setActiveCategory(storedCategory)
 
-      // Scroll to the skills section
       if (skillsRef.current) {
         skillsRef.current.scrollIntoView({
           behavior: "smooth",
           block: "start",
-        });
+        })
       }
     }
-  }, []);
+  }, [])
 
   const skills = {
     management: [
@@ -66,7 +68,6 @@ function Skills() {
       { name: "Brand Development", icon: <FaProjectDiagram /> },
     ],
     technical: [
-      { name: "WordPress", icon: <FaWordpress /> },
       { name: "TypeScript", icon: <SiTypescript /> },
       { name: "React", icon: <FaReact /> },
       { name: "JavaScript", icon: <FaJs /> },
@@ -79,6 +80,13 @@ function Skills() {
       { name: "Next.js", icon: <SiNextdotjs /> },
       { name: "Vue.js", icon: <SiVuedotjs /> },
       { name: "PHP", icon: <FaPhp /> },
+      { name: "ADDS", icon: <FaShieldAlt /> },
+      { name: "Azure", icon: <FaShieldAlt /> },
+      { name: "IAM", icon: <FaShieldAlt /> },
+      { name: "Database Queries (SQL, SPL, KQL)", icon: <FaDatabase /> },
+      { name: "API Development & Postman", icon: <FaCode /> },
+      { name: "Competitive Programming", icon: <FaCode /> },
+      { name: "WordPress", icon: <FaWordpress /> },
     ],
     security: [
       { name: "SDLC", icon: <FaShieldAlt /> },
@@ -97,7 +105,24 @@ function Skills() {
       { name: "Graph Database", icon: <SiGraphql /> },
       { name: "Reinforcement Learning", icon: <FaBrain /> },
     ],
-  };
+    creative: [
+      { name: "Design", icon: <FaPaintBrush /> },
+      { name: "Video Editing", icon: <FaVideo /> },
+    ],
+  }
+
+  const awards = [
+    {
+      title: "KQL Puzzle Challenge",
+      place: "2nd",
+      description: "Demonstrated exceptional skills in Kusto Query Language, competing against 20 participants.",
+    },
+    {
+      title: "AWS DeepRacer Contest",
+      place: "2nd",
+      description: "Developed an advanced reinforcement learning model for autonomous racing.",
+    },
+  ]
 
   const getBarColor = (category) => {
     switch (category) {
@@ -105,29 +130,34 @@ function Skills() {
         return {
           gradient: "from-[#00FF7F] to-[#00FFFF]",
           iconColor: "text-[#00FF7F]",
-        };
+        }
       case "management":
         return {
           gradient: "from-[#00BFFF] to-[#00FA9A]",
           iconColor: "text-[#00BFFF]",
-        };
+        }
       case "security":
         return {
           gradient: "from-[#FF00FF] to-[#FFA500]",
           iconColor: "text-[#FF00FF]",
-        };
+        }
       case "ai":
         return {
           gradient: "from-[#FFD700] to-[#FF1493]",
           iconColor: "text-[#FFD700]",
-        };
+        }
+      case "creative":
+        return {
+          gradient: "from-[#ADD8E6] to-[#87CEEB]",
+          iconColor: "text-[#ADD8E6]",
+        }
       default:
         return {
           gradient: "from-[#FF00FF] to-[#FF4500]",
           iconColor: "text-[#FF00FF]",
-        };
+        }
     }
-  };
+  }
 
   return (
     <section ref={skillsRef} className="py-20 px-6 relative overflow-hidden">
@@ -144,9 +174,9 @@ function Skills() {
               Skills & Expertise
             </h2>
             <p className="text-lg text-gray-200 text-center md:text-left font-['Inter']">
-              With extensive experience in both product management and software
-              engineering, I bring a unique blend of technical expertise and
-              strategic thinking.
+              With extensive generalist skills across the digital technical spectrum, I have deeper skills in project
+              management, technical mastery, and marketing/production technologies. I bring a unique blend of broad
+              technical expertise, competitive programming skills, and small team leadership.
             </p>
           </motion.div>
           <motion.div
@@ -155,12 +185,7 @@ function Skills() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 relative"
           >
-            <Lottie
-              path="/Animation1.json"
-              loop={true}
-              autoplay={true}
-              className="w-full max-w-md mx-auto"
-            />
+            <Lottie path="/Animation1.json" loop={true} autoplay={true} className="w-full max-w-md mx-auto" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </motion.div>
         </div>
@@ -174,9 +199,9 @@ function Skills() {
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
               aria-pressed={activeCategory === category}
-              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] ${
+              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] focus:outline-none focus:ring-2 focus:ring-pink-500 ${
                 activeCategory === category
-                  ? "bg-gradient-to-r from-[#00FF7F] to-[#00FFFF] text-gray-800"
+                  ? "bg-gradient-to-r from-[#FFD700] to-[#FF1493] text-gray-800"
                   : "bg-white/10 text-gray-200 hover:bg-white/20"
               }`}
             >
@@ -196,35 +221,56 @@ function Skills() {
             />
           ))}
         </div>
+
+        {/* Awards Section */}
+        <div className="mt-16">
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
+            Awards & Achievements
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {awards.map((award, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 shadow-lg"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="text-4xl text-yellow-400 mr-4">🏆</div>
+                  <h3 className="text-2xl font-semibold text-gray-200 font-['Space_Grotesk']">{award.title}</h3>
+                </div>
+                <p className="text-xl font-bold text-pink-500 mb-2">{award.place} Place</p>
+                {award.description && <p className="text-gray-300 italic">{award.description}</p>}
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
-  );
+  )
 }
 
 function SkillCard({ name, icon, index, barColor }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  });
+  })
 
   return (
     <motion.div
       ref={ref}
       initial={{ opacity: 0, scale: 0.8 }}
-      animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-      whileHover={{ scale: 1.05 }}
+      animate={inView ? { opacity: 1, scale: 1 } : {}}
+      whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
       transition={{ duration: 0.3 }}
       className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between h-full"
     >
       <div className="flex flex-col items-center text-center">
-        <div
-          className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}
-        >
+        <div className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">
-          {name}
-        </h3>
+        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">{name}</h3>
       </div>
       <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
         <motion.div
@@ -235,7 +281,8 @@ function SkillCard({ name, icon, index, barColor }) {
         />
       </div>
     </motion.div>
-  );
+  )
 }
 
-export default Skills;
+export default Skills
+
