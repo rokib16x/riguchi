@@ -49,7 +49,7 @@ const LoadingAnimation = () => {
                 animate={fadeInUp.animate}
                 transition={{ delay: 0.2 }}
                 className="text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-clip-text text-transparent cursor-default"
-                style={{ background: colors.accent.gradient }}
+                style={{ color: colors.text.primary }}
                 whileHover={{ scale: 1.05 }}
               >
                 {name}.
