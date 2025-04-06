@@ -12,17 +12,18 @@ module.exports = {
       },
       colors: {
         background: {
-          start: '#8B2FBE',
-          end: '#1E2F97',
+          start: '#1a1b26',
+          end: '#24283b',
         },
         text: {
-          primary: '#FFFFFF',
-          secondary: '#E2E8F0',
-          accent: '#FF3366',
+          primary: '#a9b1d6',
+          secondary: '#9aa5ce',
+          accent: '#7aa2f7',
+          highlight: '#ff9e64',
         },
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(135deg, #8B2FBE 0%, #1E2F97 100%)',
+        'gradient-primary': 'linear-gradient(135deg, #7aa2f7 0%, #bb9af7 100%)',
       },
     },
   },

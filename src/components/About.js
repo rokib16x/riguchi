@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Diamond, Shield, Code, Users, Globe } from "lucide-react"
 import { Link } from "react-scroll"
+import { colors } from "../styles/colors"
 
 // Reusable animations
 const variants = {
@@ -20,7 +21,7 @@ const ListItem = ({ icon, text, delay }) => (
     transition={{ duration: 0.5, delay }}
   >
     <span className="mt-1 flex-shrink-0">{icon}</span>
-    <span className="text-lg font-medium text-gray-200 font-inter">{text}</span>
+    <span className="text-lg font-medium font-inter" style={{ color: colors.text.secondary }}>{text}</span>
   </motion.li>
 )
 
@@ -35,8 +36,9 @@ function About() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           transition={transition}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center font-space-grotesk bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent"
-        >
+          className="text-4xl md:text-5xl font-bold mb-12 text-center font-space-grotesk bg-clip-text text-transparent"
+          style={{ color: colors.text.primary }}
+          >
           About Me
         </motion.h2>
 
@@ -47,7 +49,8 @@ function About() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
           transition={{ ...transition, delay: 0.2 }}
-          className="space-y-16 text-base md:text-lg text-gray-200 font-inter"
+          className="space-y-16 text-base md:text-lg font-inter"
+          style={{ color: colors.text.secondary }}
         >
           {/* Introduction */}
           <p className="leading-relaxed text-center text-lg md:text-xl font-inter">
@@ -55,7 +58,7 @@ function About() {
             <span
               className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins"
               style={{
-                background: "linear-gradient(to right, #FFA500, #FFD700)",
+                background: colors.accent.gradient,
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",

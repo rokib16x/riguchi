@@ -3,10 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --background: #0f0f1a;
-  --text: #ffffff;
-  --accent: #4077E3;
-  --secondary: #1DC177;
+  --background: #16161F;
+  --text: #a9b1d6;
+  --accent: #16161F;
+  --secondary: #1A1B27;
+  --highlight: #ff9e64;
 }
 
 body {
@@ -70,11 +71,11 @@ html {
 }
 
 .gradient-text {
-  @apply bg-gradient-to-r from-[#4077E3] to-[#1DC177] bg-clip-text text-transparent;
+  @apply bg-gradient-to-r from-[#7aa2f7] to-[#bb9af7] bg-clip-text text-transparent;
 }
 
 .gradient-border {
-  @apply border border-transparent bg-gradient-to-r from-[#4077E3] to-[#1DC177];
+  @apply border border-transparent bg-gradient-to-r from-[#7aa2f7] to-[#bb9af7];
 }
 
 .glass-effect {

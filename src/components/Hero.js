@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
+import SocialLink from "./SocialLink";
+import { colors } from "../styles/colors";
 
 function Hero() {
   const fadeInUp = {
@@ -19,7 +21,8 @@ function Hero() {
           <motion.p
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
-            className="font-mono text-[#BDBDBD] text-xl mb-2"
+            className="font-mono text-xl mb-2"
+            style={{ color: colors.text.muted }}
           >
             Hey there! I'm-
           </motion.p>
@@ -27,7 +30,8 @@ function Hero() {
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
             transition={{ delay: 0.2 }}
-            className={`text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#FFD700] to-[#FF4500] bg-clip-text text-transparent font-['Space_Grotesk'] cursor-default`}
+            className="text-6xl md:text-7xl font-bold mb-4 tracking-tight font-['Space_Grotesk'] cursor-default"
+            style={{ color: colors.text.primary }}
             whileHover={{ scale: 1.05 }}
           >
             {name}.
@@ -36,7 +40,8 @@ function Hero() {
             initial={fadeInUp.initial}
             animate={fadeInUp.animate}
             transition={{ delay: 0.4 }}
-            className="text-2xl md:text-3xl text-white/80 font-medium mb-6 font-['Inter']"
+            className="text-2xl md:text-3xl font-medium mb-6 font-['Inter']"
+            style={{ color: colors.text.secondary }}
           >
             Product Manager & Software Engineer
           </motion.h2>
@@ -80,7 +85,10 @@ function Hero() {
               },
             }}
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#4077E3] to-[#1DC177] rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt" />
+            <div
+              className="absolute -inset-1 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
+              style={{ background: colors.accent.gradient }}
+            />
             <img
               src="/profile-image.png"
               alt={`${name} - Product Manager & Software Engineer`}
@@ -94,22 +102,6 @@ function Hero() {
         </motion.div>
       </div>
     </div>
-  );
-}
-
-function SocialLink({ href, icon, label }) {
-  return (
-    <motion.a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label={`Link to ${label}`}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-      className="bg-white/10 p-3 rounded-full hover:bg-white/20 transition-colors text-white text-2xl backdrop-blur-sm"
-    >
-      {icon}
-    </motion.a>
   );
 }
 

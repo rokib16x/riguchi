@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { colors } from "../styles/colors";
 
 const LoadingAnimation = () => {
   const [sequence, setSequence] = React.useState(1);
@@ -24,13 +25,13 @@ const LoadingAnimation = () => {
   return (
     <div className="fixed inset-0 flex items-center justify-center overflow-hidden">
       {/* Gradient background */}
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,_#8B2FBE_0%,_#1E2F97_100%)]">
+      <div style={{ background: colors.background.gradient }}>
         <motion.div
           className="absolute inset-0 opacity-40"
           animate={{
             background: [
-              "radial-gradient(circle at 20% 20%, rgba(139, 47, 190, 0.5) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 80%, rgba(30, 47, 151, 0.5) 0%, transparent 50%)",
+              `radial-gradient(circle at 20% 20%, ${colors.background.default}80 0%, transparent 50%)`,
+              `radial-gradient(circle at 80% 80%, ${colors.background.paper}80 0%, transparent 50%)`,
             ],
           }}
           transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
@@ -47,7 +48,8 @@ const LoadingAnimation = () => {
                 initial={fadeInUp.initial}
                 animate={fadeInUp.animate}
                 transition={{ delay: 0.2 }}
-                className={`text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#FFD700] to-[#FF4500] bg-clip-text text-transparent cursor-default`}
+                className="text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-clip-text text-transparent cursor-default"
+                style={{ background: colors.accent.gradient }}
                 whileHover={{ scale: 1.05 }}
               >
                 {name}.
@@ -57,7 +59,8 @@ const LoadingAnimation = () => {
                 initial={fadeInUp.initial}
                 animate={fadeInUp.animate}
                 transition={{ delay: 0.4 }}
-                className="text-2xl md:text-3xl text-white/80 font-medium mb-12"
+                className="text-2xl md:text-3xl font-medium mb-12"
+                style={{ color: colors.text.secondary }}
               >
                 Product Manager & Software Engineer
               </motion.h2>
@@ -74,7 +77,8 @@ const LoadingAnimation = () => {
                 initial={fadeInUp.initial}
                 animate={fadeInUp.animate}
                 transition={{ delay: 0.2 }}
-                className={`text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] bg-clip-text text-transparent cursor-default`}
+                className="text-6xl md:text-7xl font-bold mb-4 tracking-tight bg-clip-text text-transparent cursor-default"
+                style={{ background: colors.accent.gradient }}
                 whileHover={{ scale: 1.05 }}
               >
                 {name}.
@@ -84,7 +88,8 @@ const LoadingAnimation = () => {
                 initial={fadeInUp.initial}
                 animate={fadeInUp.animate}
                 transition={{ delay: 0.4 }}
-                className="text-2xl md:text-3xl text-white/80 font-medium mb-12"
+                className="text-2xl md:text-3xl font-medium mb-12"
+                style={{ color: colors.text.secondary }}
               >
                 Product Manager & Software Engineer
               </motion.h2>
@@ -97,7 +102,8 @@ const LoadingAnimation = () => {
           {[1, 2, 3, 4, 5].map((index) => (
             <motion.div
               key={index}
-              className="w-2 h-2 bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] rounded-full"
+              className="w-2 h-2 rounded-full"
+              style={{ background: colors.accent.gradient }}
               animate={{
                 y: ["0%", "-100%", "0%"],
                 opacity: [0.3, 1, 0.3],

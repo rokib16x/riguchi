@@ -1,6 +1,0 @@
-'from-[#00FF7F] to-[#00FFFF]', // Spring Green to Cyan
-'from-[#00BFFF] to-[#00FA9A]', // Deep Sky Blue to Medium Spring Green
-'from-[#FF00FF] to-[#FFA500]', // Magenta to Orange
-'from-[#FFD700] to-[#FF1493]', // Gold to Deep Pink
-'from-[#FF00FF] to-[#FF4500]', // Magenta to Orange Red
-'from-[#00BFFF] to-[#FF1493]', // Deep Sky Blue to Deep Pink
