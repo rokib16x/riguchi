@@ -238,10 +238,12 @@ function Skills() {
               >
                 <div className="flex items-center mb-4">
                   <div className="text-4xl text-yellow-400 mr-4">🏆</div>
-                  <h3 className="text-2xl font-semibold text-gray-200 font-['Space_Grotesk']">{award.title}</h3>
+                  <h3 className="text-2xl font-semibold bg-gradient-to-r from-[#FFD700] to-[#FF9400] bg-clip-text text-transparent font-['Space_Grotesk']">
+  {award.title}
+</h3>
                 </div>
-                <p className="text-xl font-bold text-pink-500 mb-2">{award.place} Place</p>
-                {award.description && <p className="text-gray-300 italic">{award.description}</p>}
+                <p className="text-xl font-bold text-[#FFA500] mb-2">{award.place} Place</p>
+                {award.description && <p className="text-gray-300">{award.description}</p>}
               </motion.div>
             ))}
           </div>
