@@ -8,38 +8,38 @@ function Certifications() {
       title: "Professional Scrum Master (PSM)",
       issuer: "Scrum.org",
       date: "Mar 2024",
-      color: "from-pink-500 to-purple-500"
+      color: "from-[#FFD700] to-[#FF9400]"
     },
     {
       title: "Professional Scrum Product Owner (PSPO)",
       issuer: "Scrum.org",
       date: "Apr 2024",
-      color: "from-purple-500 to-indigo-500"
+      color: "from-[#FFD700] to-[#FF9400]"
     },
 
     {
       title: "Cybersecurity Professional",
       issuer: "Cal State Long Beach",
       date: "Aug 2023",
-      color: "from-blue-500 to-teal-500"
+      color: "from-[#FFD700] to-[#FF9400]"
     },
     {
       title: "Security+ Certified",
       issuer: "CompTIA",
       date: "May 2024",
-      color: "from-teal-500 to-green-500"
+      color: "from-[#FFD700] to-[#FF9400]"
     },
     {
       title: "Cybersecurity, Identity & Compliance",
       issuer: "Microsoft",
       date: "Dec 2023",
-      color: "from-green-500 to-yellow-500"
+      color: "from-[#FFD700] to-[#FF9400]"
     },
     {
       title: "Certified in Cybersecurity (CC)",
       issuer: "ISC2",
       date: "Sept 2023",
-      color: "from-indigo-500 to-blue-500"
+      color: "from-[#FFD700] to-[#FF9400]"
     },
   ];
 
@@ -50,7 +50,7 @@ function Certifications() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent font-['Space_Grotesk']"
+          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']"
         >
           Certifications
         </motion.h2>

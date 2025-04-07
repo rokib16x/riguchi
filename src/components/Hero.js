@@ -86,11 +86,10 @@ function Hero() {
             }}
           >
             <div
-              className="absolute -inset-1 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"
-              style={{ background: colors.accent.gradient }}
+              className="absolute -inset-1 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 bg-gradient-to-r from-[#FFD700] to-[#FF9400] animate-tilt"
             />
             <img
-              src="/profile-image.png"
+              src="/profile-image.webp"
               alt={`${name} - Product Manager & Software Engineer`}
               loading="lazy"
               onError={(e) => {

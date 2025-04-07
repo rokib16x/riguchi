@@ -1,14 +1,14 @@
-import { motion } from "framer-motion"
-import { Diamond, Shield, Code, Users, Globe } from "lucide-react"
-import { Link } from "react-scroll"
-import { colors } from "../styles/colors"
+import { motion } from "framer-motion";
+import { Diamond, Shield, Code, Users, Globe } from "lucide-react";
+import { Link } from "react-scroll";
+import { colors } from "../styles/colors";
 
 // Reusable animations
 const variants = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
-}
-const transition = { duration: 0.5 }
+};
+const transition = { duration: 0.5 };
 
 // Reusable ListItem component
 const ListItem = ({ icon, text, delay }) => (
@@ -21,9 +21,14 @@ const ListItem = ({ icon, text, delay }) => (
     transition={{ duration: 0.5, delay }}
   >
     <span className="mt-1 flex-shrink-0">{icon}</span>
-    <span className="text-lg font-medium font-inter" style={{ color: colors.text.secondary }}>{text}</span>
+    <span
+      className="text-lg font-medium font-inter"
+      style={{ color: colors.text.secondary }}
+    >
+      {text}
+    </span>
   </motion.li>
-)
+);
 
 function About() {
   return (
@@ -36,9 +41,8 @@ function About() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
           transition={transition}
-          className="text-4xl md:text-5xl font-bold mb-12 text-center font-space-grotesk bg-clip-text text-transparent"
-          style={{ color: colors.text.primary }}
-          >
+          className="text-4xl md:text-5xl font-bold mb-12 text-center font-space-grotesk bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent"
+        >
           About Me
         </motion.h2>
 
@@ -58,14 +62,14 @@ function About() {
             <span
               className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins"
               style={{
-                background: colors.accent.gradient,
+                background: "linear-gradient(to right, #FFFFFF, #F5F5F5)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
               }}
             >
               Ryan Iguchi
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#FFD700] group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
             </span>
             , a{" "}
             <Link
@@ -75,18 +79,18 @@ function About() {
               spy={true}
               offset={-100}
               onClick={() => {
-                localStorage.setItem("activeSkillCategory", "management")
+                localStorage.setItem("activeSkillCategory", "management");
               }}
               className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins cursor-pointer"
               style={{
-                background: "linear-gradient(to right, #4077E3, #1DC177)",
+                background: "linear-gradient(to right, #FFFFFF, #F5F5F5)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
               }}
             >
               Technical Product Manager
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#FFD700] group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
             </Link>{" "}
             and{" "}
             <Link
@@ -96,28 +100,30 @@ function About() {
               spy={true}
               offset={-100}
               onClick={() => {
-                localStorage.setItem("activeSkillCategory", "technical")
+                localStorage.setItem("activeSkillCategory", "technical");
               }}
               className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins cursor-pointer"
               style={{
-                background: "linear-gradient(to right, #4077E3, #1DC177)",
+                background: "linear-gradient(to right, #FFFFFF, #F5F5F5)",
                 WebkitBackgroundClip: "text",
                 backgroundClip: "text",
                 color: "transparent",
               }}
             >
               Software Engineer
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FF6B6B] to-[#FFD700] group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
             </Link>{" "}
-            with over a decade of experience bridging technical expertise and business strategy. My journey began in
-            2010, experimenting with no-code solutions before diving deep into software development. This evolution has
-            led me through roles spanning web development, IT leadership, and product management, giving me a unique
-            perspective on building technology solutions.
+            with over a decade of experience bridging technical expertise and
+            business strategy. My journey began in 2010, experimenting with
+            no-code solutions before diving deep into software development. This
+            evolution has led me through roles spanning web development, IT
+            leadership, and product management, giving me a unique perspective
+            on building technology solutions.
           </p>
           <div className="h-2"></div> {/* Adds a 4rem (64px) vertical break */}
           {/* What I Specialize In */}
           <div className="space-y-8">
-            <h4 className="text-xl md:text-3xl font-semibold text-center font-space-grotesk bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent">
+            <h4 className="text-xl md:text-3xl font-semibold text-center font-space-grotesk bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent">
               What I Specialize In
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -129,7 +135,12 @@ function About() {
               ].map((item, index) => (
                 <ListItem
                   key={index}
-                  icon={<Diamond size={16} className="flex-shrink-0 text-[#FF6B6B]" />}
+                  icon={
+                    <Diamond
+                      size={16}
+                      className="flex-shrink-0 text-[#FF6B6B]"
+                    />
+                  }
                   text={item}
                   delay={0.3 + index * 0.1}
                 />
@@ -140,7 +151,7 @@ function About() {
           <div className="h-2"></div> {/* Adds a 4rem (64px) vertical break */}
           {/* Beyond Professional Work */}
           <div className="space-y-8">
-            <h4 className="text-xl md:text-3xl font-semibold text-center font-space-grotesk bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent">
+            <h4 className="text-xl md:text-3xl font-semibold text-center font-space-grotesk bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent">
               Beyond my professional work:
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -162,20 +173,25 @@ function About() {
                   text: "I explore global tech trends and innovations.",
                 },
               ].map((item, index) => (
-                <ListItem key={index} icon={item.icon} text={item.text} delay={0.3 + index * 0.1} />
+                <ListItem
+                  key={index}
+                  icon={item.icon}
+                  text={item.text}
+                  delay={0.3 + index * 0.1}
+                />
               ))}
             </ul>
           </div>
           {/* Current Focus */}
           <p className="leading-relaxed text-center font-inter">
-            Currently, I'm focused on building innovative solutions in the construction technology space, where I'm
-            excited to tackle new challenges that push the boundaries of what's possible.
+            Currently, I'm focused on building innovative solutions in the
+            construction technology space, where I'm excited to tackle new
+            challenges that push the boundaries of what's possible.
           </p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
-export default About
-
+export default About;

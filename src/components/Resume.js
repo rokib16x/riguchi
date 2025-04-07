@@ -28,7 +28,7 @@ function Resume() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent font-['Space_Grotesk']"
+          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']"
         >
           My Resumes
         </motion.h2>
@@ -41,7 +41,7 @@ function Resume() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:bg-white/10 transition-all duration-300"
             >
-              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#00BFFF] to-[#00FA9A] bg-clip-text text-transparent font-['Space_Grotesk']">
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FF9400] bg-clip-text text-transparent font-['Space_Grotesk']">
                 {resume.title}
               </h3>
               <p className="text-gray-200 mb-6 font-['Inter']">

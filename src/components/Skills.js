@@ -128,33 +128,33 @@ function Skills() {
     switch (category) {
       case "technical":
         return {
-          gradient: "from-[#00FF7F] to-[#00FFFF]",
-          iconColor: "text-[#00FF7F]",
+          gradient: "from-[#FFD700] to-[#FF9400]",
+          iconColor: "text-[#FFA500]",
         }
       case "management":
         return {
-          gradient: "from-[#00BFFF] to-[#00FA9A]",
-          iconColor: "text-[#00BFFF]",
+          gradient: "from-[#FFD700] to-[#FF9400]",
+          iconColor: "text-[#FFA500]",
         }
       case "security":
         return {
-          gradient: "from-[#FF00FF] to-[#FFA500]",
-          iconColor: "text-[#FF00FF]",
+          gradient: "from-[#FFD700] to-[#FF9400]",
+          iconColor: "text-[#FFA500]",
         }
       case "ai":
         return {
-          gradient: "from-[#FFD700] to-[#FF1493]",
-          iconColor: "text-[#FFD700]",
+          gradient: "from-[#FFD700] to-[#FF9400]",
+          iconColor: "text-[#FFA500]",
         }
       case "creative":
         return {
-          gradient: "from-[#ADD8E6] to-[#87CEEB]",
-          iconColor: "text-[#ADD8E6]",
+          gradient: "from-[#FFD700] to-[#FF9400]",
+          iconColor: "text-[#FFA500]",
         }
       default:
         return {
-          gradient: "from-[#FF00FF] to-[#FF4500]",
-          iconColor: "text-[#FF00FF]",
+          gradient: "from-[#FFD700] to-[#FF9400]",
+          iconColor: "text-[#FFA500]",
         }
     }
   }
@@ -170,7 +170,7 @@ function Skills() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="md:w-1/2"
           >
-            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent font-['Space_Grotesk']">
+            <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
               Skills & Expertise
             </h2>
             <p className="text-lg text-gray-200 text-center md:text-left font-['Inter']">
@@ -199,9 +199,9 @@ function Skills() {
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
               aria-pressed={activeCategory === category}
-              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] focus:outline-none focus:ring-2 focus:ring-pink-500 ${
+              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] focus:outline-none focus:ring-2 focus:ring-grey-500 ${
                 activeCategory === category
-                  ? "bg-gradient-to-r from-[#FFD700] to-[#FF1493] text-gray-800"
+                  ? "bg-gradient-to-r from-[#FFD700] to-[#FF9400] text-gray-800"
                   : "bg-white/10 text-gray-200 hover:bg-white/20"
               }`}
             >

@@ -13,7 +13,7 @@ function Contact() {
             <motion.h2
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              className="text-5xl font-bold text-left bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent font-['Space_Grotesk']"
+              className="text-5xl font-bold text-left bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']"
             >
               Let's Connect
             </motion.h2>
@@ -64,7 +64,7 @@ function Contact() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <img
-                src="/Favorite-2.png"
+                src="/Favorite-2.webp"
                 alt="Ryan Iguchi - Contact"
                 className="w-full h-full object-cover object-top transform transition-transform duration-300 group-hover:scale-105"
                 style={{ objectPosition: "top" }}

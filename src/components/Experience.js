@@ -206,7 +206,7 @@ const experiences = [
     color: "from-[#4077E3] to-[#1DC177]",
   },
   {
-    title: "Web Programmer, API Programmer & Email Marketing",
+    title: "Web Programmer",
     company: "Boulder Studios",
     period: "Jan 1999 - Dec 2000",
     description:
@@ -231,7 +231,7 @@ function Experience() {
   return (
     <section id="experience" className="py-20 px-6 relative">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent font-['Space_Grotesk']">
+        <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
           Work Experience
         </h2>
         <div className="relative space-y-6" ref={containerRef}>
@@ -283,7 +283,7 @@ function ExperienceCard({ title, company, period, description, achievements }) {
         <div className="p-6 border-b border-white/10">
           <div className="flex items-start justify-between gap-4">
             <div className="flex-grow">
-              <h3 className="text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk'] mb-2">
+              <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
                 {title}
               </h3>
               <div className="flex flex-wrap gap-4 text-base text-gray-300">

@@ -67,7 +67,7 @@ function Navbar() {
             whileHover={{ scale: 1.1, rotate: 5 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollToTop}
-            className="text-2xl font-bold bg-gradient-to-r from-[#FF00FF] to-[#FFA500] bg-clip-text text-transparent cursor-pointer font-mono"
+            className="text-2xl font-bold bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent cursor-pointer font-mono"
           >
             {"{RI}"}
           </motion.div>
@@ -155,7 +155,7 @@ function NavLink({ href, children, isExternal, onClick }) {
       className="relative font-medium text-white/80 hover:text-white transition-colors font-sans group flex items-center"
     >
       {children}
-      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-pink-500 to-purple-500 group-hover:w-full transition-all duration-300" />
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
     </motion.a>
   );
 }
