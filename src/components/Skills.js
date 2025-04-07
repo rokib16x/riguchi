@@ -234,7 +234,7 @@ function Skills() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 shadow-lg"
+                className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-[#FFA500] hover:bg-white/10 transition-all duration-300 shadow-lg"
               >
                 <div className="flex items-center mb-4">
                   <div className="text-4xl text-yellow-400 mr-4">🏆</div>
