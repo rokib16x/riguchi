@@ -52,7 +52,7 @@ function Hero() {
             className="flex justify-center md:justify-start gap-4"
           >
             <SocialLink
-              href="https://github.com"
+              href="https://github.com/netdevs-net"
               icon={<FaGithub />}
               label="GitHub"
             />

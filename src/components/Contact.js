@@ -40,7 +40,7 @@ function Contact() {
                 text="LinkedIn"
               />
               <ContactButton
-                href="https://github.com/yourusername"
+                href="https://github.com/netdevs-net"
                 icon={<FaGithub />}
                 text="GitHub"
               />
