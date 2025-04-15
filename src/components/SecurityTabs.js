@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaShieldAlt, FaDatabase } from 'react-icons/fa';
-import { GiNetworkBars } from 'react-icons/gi';
 
 const SecurityTabs = ({ skills, getBarColor }) => {
   const [activeTab, setActiveTab] = useState('appsec');

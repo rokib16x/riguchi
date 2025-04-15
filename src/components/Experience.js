@@ -1,10 +1,9 @@
 import { useRef } from "react";
-import { motion, useScroll, useSpring, useInView } from "framer-motion";
+import { motion, useScroll, useInView } from "framer-motion";
 import {
   Calendar,
   Building2,
   Award,
-  Briefcase,
   Wifi,
   CheckCircle2,
 } from "lucide-react";

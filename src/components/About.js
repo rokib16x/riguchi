@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Diamond, Shield, Code, Users, Globe, Swords } from "lucide-react";
+import { Diamond, Shield, Users, Globe, Swords } from "lucide-react";
 import { Link } from "react-scroll";
 import { colors } from "../styles/colors";
 
