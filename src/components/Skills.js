@@ -1,25 +1,33 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import SecurityTabs from './SecurityTabs';
-import MarketingTabs from './MarketingTabs';
+import SecurityTabs from "./SecurityTabs";
+import MarketingTabs from "./MarketingTabs";
 import {
   FaJs,
-  FaNodeJs,
   FaProjectDiagram,
   FaShieldAlt,
   FaRobot,
   FaPhp,
   FaDatabase,
-  FaCode,
   FaPaintBrush,
   FaVideo,
+  FaNodeJs,
+  FaGitAlt,
+  FaJava,
+  FaWordpress,
 } from "react-icons/fa";
 import {
-  SiTypescript,
-  SiSvelte,
   SiJira,
   SiSlack,
+  SiTypescript,
+  SiReact,
+  SiSvelte,
+  SiNextdotjs,
+  SiAngular,
+  SiVuedotjs,
+  SiGraphql,
+  SiWebpack,
 } from "react-icons/si";
 import { GiNetworkBars } from "react-icons/gi";
 import Lottie from "lottie-react";
@@ -36,13 +44,6 @@ function Skills() {
     const storedCategory = localStorage.getItem("activeSkillCategory");
     if (storedCategory) {
       setActiveCategory(storedCategory);
-
-      if (skillsRef.current) {
-        skillsRef.current.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
     }
   }, []);
 
@@ -58,17 +59,26 @@ function Skills() {
       { name: "User Research & Validation", icon: <FaProjectDiagram /> },
       { name: "Data-Driven Decision Making", icon: <FaProjectDiagram /> },
       { name: "Stakeholder Alignment & Communication", icon: <SiSlack /> },
-      { name: "Brand & Customer Experience (CX) Development", icon: <FaProjectDiagram /> },
+      {
+        name: "Brand & Customer Experience (CX) Development",
+        icon: <FaProjectDiagram />,
+      },
     ],
     programming: [
       { name: "JavaScript", icon: <FaJs /> },
       { name: "TypeScript", icon: <SiTypescript /> },
-      { name: "PHP", icon: <FaPhp /> },
+      { name: "React", icon: <SiReact /> },
       { name: "Svelte", icon: <SiSvelte /> },
       { name: "Node.js", icon: <FaNodeJs /> },
-      { name: "API Development (REST, GraphQL)", icon: <FaCode /> },
-      { name: "Git & Version Control", icon: <FaCode /> },
-      { name: "Build Tools & Task Runners", icon: <FaCode /> },
+      { name: "Next.js", icon: <SiNextdotjs /> },
+      { name: "Angular", icon: <SiAngular /> },
+      { name: "Vue.js", icon: <SiVuedotjs /> },
+      { name: "API Development (REST, GraphQL)", icon: <SiGraphql /> },
+      { name: "Git & Version Control", icon: <FaGitAlt /> },
+      { name: "Build Tools & Task Runners", icon: <SiWebpack /> },
+      { name: "Java", icon: <FaJava /> },
+      { name: "PHP", icon: <FaPhp /> },
+      { name: "WordPress", icon: <FaWordpress /> },
     ],
     security: {
       appsec: [
@@ -83,7 +93,7 @@ function Skills() {
         { name: "Secure Development Lifecycle (SDLC)", icon: <FaShieldAlt /> },
         { name: "DevSecOps", icon: <FaShieldAlt /> },
         { name: "Vulnerability Research", icon: <FaShieldAlt /> },
-        { name: "Postman (API testing)", icon: <FaShieldAlt /> }
+        { name: "Postman (API testing)", icon: <FaShieldAlt /> },
       ],
       infrasec: [
         { name: "Linux Security", icon: <FaShieldAlt /> },
@@ -95,15 +105,15 @@ function Skills() {
         { name: "Active Directory (ADDS)", icon: <FaShieldAlt /> },
         { name: "Azure Security", icon: <FaShieldAlt /> },
         { name: "Identity & Access Management (IAM)", icon: <FaShieldAlt /> },
-        { name: "Database Security & Queries", icon: <FaDatabase /> }
+        { name: "Database Security & Queries", icon: <FaDatabase /> },
       ],
       governance: [
         { name: "NIST RMF", icon: <FaShieldAlt /> },
         { name: "ISO 27001", icon: <FaShieldAlt /> },
         { name: "Risk Assessment", icon: <FaShieldAlt /> },
         { name: "Audit & Compliance", icon: <FaShieldAlt /> },
-        { name: "Security Awareness Training", icon: <FaShieldAlt /> }
-      ]
+        { name: "Security Awareness Training", icon: <FaShieldAlt /> },
+      ],
     },
     ai: [
       { name: "AIOps", icon: <FaRobot /> },
@@ -117,18 +127,21 @@ function Skills() {
         { name: "Videography", icon: <FaVideo /> },
         { name: "Video Editing", icon: <FaVideo /> },
         { name: "Sound Engineering", icon: <FaVideo /> },
-        { name: "Streaming Services", icon: <FaVideo /> }
+        { name: "Streaming Services", icon: <FaVideo /> },
       ],
       design_ux: [
         { name: "UX Design", icon: <FaPaintBrush /> },
-        { name: "Graphic Design", icon: <FaPaintBrush /> }
+        { name: "Graphic Design", icon: <FaPaintBrush /> },
       ],
       digital_marketing: [
         { name: "Email Campaigns", icon: <FaProjectDiagram /> },
         { name: "Drip Marketing", icon: <FaProjectDiagram /> },
-        { name: "SEO (Search Engine Optimization)", icon: <FaProjectDiagram /> },
-        { name: "PPC (Pay-Per-Click Advertising)", icon: <FaProjectDiagram /> }
-      ]
+        {
+          name: "SEO (Search Engine Optimization)",
+          icon: <FaProjectDiagram />,
+        },
+        { name: "PPC (Pay-Per-Click Advertising)", icon: <FaProjectDiagram /> },
+      ],
     },
   };
 
@@ -250,9 +263,9 @@ function Skills() {
           ))}
         </div>
 
-        {activeCategory === 'security' ? (
+        {activeCategory === "security" ? (
           <SecurityTabs skills={skills.security} getBarColor={getBarColor} />
-        ) : activeCategory === 'marketing' ? (
+        ) : activeCategory === "marketing" ? (
           <MarketingTabs skills={skills.marketing} getBarColor={getBarColor} />
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -270,7 +283,7 @@ function Skills() {
 
         {/* Awards Section */}
         <div className="mt-32">
-        <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
+          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
             Awards & Achievements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
