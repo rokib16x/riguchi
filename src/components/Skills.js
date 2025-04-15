@@ -4,18 +4,12 @@ import { useInView } from "react-intersection-observer";
 import SecurityTabs from './SecurityTabs';
 import MarketingTabs from './MarketingTabs';
 import {
-  FaReact,
   FaJs,
   FaNodeJs,
-  FaPython,
   FaProjectDiagram,
   FaShieldAlt,
   FaRobot,
-  FaCss3,
-  FaBootstrap,
   FaPhp,
-  FaBrain,
-  FaWordpress,
   FaDatabase,
   FaCode,
   FaPaintBrush,
@@ -24,15 +18,10 @@ import {
 import {
   SiTypescript,
   SiSvelte,
-  SiTailwindcss,
-  SiNextdotjs,
-  SiVuedotjs,
-  SiGraphql,
   SiJira,
-  SiTrello,
   SiSlack,
 } from "react-icons/si";
-import { GiNetworkBars, GiSpy } from "react-icons/gi";
+import { GiNetworkBars } from "react-icons/gi";
 import Lottie from "lottie-react";
 
 function Skills() {
