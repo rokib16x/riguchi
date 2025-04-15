@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import SecurityTabs from './SecurityTabs';
+import MarketingTabs from './MarketingTabs';
 import {
   FaReact,
   FaJs,
@@ -58,53 +60,87 @@ function Skills() {
   const skills = {
     management: [
       { name: "Technical Project Management", icon: <FaProjectDiagram /> },
-      { name: "Product Strategy", icon: <FaProjectDiagram /> },
-      { name: "Agile Methodology", icon: <SiJira /> },
-      { name: "Scrum Master", icon: <SiTrello /> },
-      { name: "Backlog Management", icon: <SiJira /> },
-      { name: "User Research", icon: <FaProjectDiagram /> },
-      { name: "Data Analysis", icon: <FaProjectDiagram /> },
-      { name: "Stakeholder Communication", icon: <SiSlack /> },
-      { name: "Brand Development", icon: <FaProjectDiagram /> },
+      { name: "Product Strategy & Roadmapping", icon: <FaProjectDiagram /> },
+      { name: "Agile & Scrum Methodologies", icon: <SiJira /> },
+      { name: "Backlog Prioritization & Refinement", icon: <SiJira /> },
+      { name: "Cross-Functional Team Leadership", icon: <FaProjectDiagram /> },
+      { name: "Risk & Resource Management", icon: <FaProjectDiagram /> },
+      { name: "Customer Journey Mapping", icon: <FaProjectDiagram /> },
+      { name: "User Research & Validation", icon: <FaProjectDiagram /> },
+      { name: "Data-Driven Decision Making", icon: <FaProjectDiagram /> },
+      { name: "Stakeholder Alignment & Communication", icon: <SiSlack /> },
+      { name: "Brand & Customer Experience (CX) Development", icon: <FaProjectDiagram /> },
     ],
-    technical: [
-      { name: "TypeScript", icon: <SiTypescript /> },
-      { name: "React", icon: <FaReact /> },
+    programming: [
       { name: "JavaScript", icon: <FaJs /> },
-      { name: "Python", icon: <FaPython /> },
-      { name: "Node.js", icon: <FaNodeJs /> },
-      { name: "Svelte", icon: <SiSvelte /> },
-      { name: "CSS3", icon: <FaCss3 /> },
-      { name: "Bootstrap", icon: <FaBootstrap /> },
-      { name: "Tailwind", icon: <SiTailwindcss /> },
-      { name: "Next.js", icon: <SiNextdotjs /> },
-      { name: "Vue.js", icon: <SiVuedotjs /> },
+      { name: "TypeScript", icon: <SiTypescript /> },
       { name: "PHP", icon: <FaPhp /> },
-      { name: "ADDS", icon: <FaShieldAlt /> },
-      { name: "Azure", icon: <FaShieldAlt /> },
-      { name: "IAM", icon: <FaShieldAlt /> },
-      { name: "Database Queries (SQL, SPL, KQL)", icon: <FaDatabase /> },
-      { name: "API Development & Postman", icon: <FaCode /> },
-      { name: "Competitive Programming", icon: <FaCode /> },
-      { name: "WordPress", icon: <FaWordpress /> },
+      { name: "Svelte", icon: <SiSvelte /> },
+      { name: "Node.js", icon: <FaNodeJs /> },
+      { name: "API Development (REST, GraphQL)", icon: <FaCode /> },
+      { name: "Git & Version Control", icon: <FaCode /> },
+      { name: "Build Tools & Task Runners", icon: <FaCode /> },
     ],
-    security: [
-      { name: "SDLC", icon: <FaShieldAlt /> },
-      { name: "DevOps", icon: <FaShieldAlt /> },
-      { name: "Cloud Security", icon: <FaShieldAlt /> },
-      { name: "Risk Management", icon: <FaShieldAlt /> },
-      { name: "OWASP Top 10", icon: <FaShieldAlt /> },
-      { name: "Network Security", icon: <GiNetworkBars /> },
-      { name: "Reverse Engineering", icon: <GiSpy /> },
-    ],
+    security: {
+      appsec: [
+        { name: "Web Security", icon: <FaShieldAlt /> },
+        { name: "Burp Suite", icon: <FaShieldAlt /> },
+        { name: "Content-Security-Policy (CSP)", icon: <FaShieldAlt /> },
+        { name: "API Security", icon: <FaShieldAlt /> },
+        { name: "OWASP Top 10", icon: <FaShieldAlt /> },
+        { name: "OWASP ASVS", icon: <FaShieldAlt /> },
+        { name: "Static & Dynamic Analysis", icon: <FaShieldAlt /> },
+        { name: "Threat Modeling", icon: <FaShieldAlt /> },
+        { name: "Secure Development Lifecycle (SDLC)", icon: <FaShieldAlt /> },
+        { name: "DevSecOps", icon: <FaShieldAlt /> },
+        { name: "Vulnerability Research", icon: <FaShieldAlt /> },
+        { name: "Postman (API testing)", icon: <FaShieldAlt /> }
+      ],
+      infrasec: [
+        { name: "Linux Security", icon: <FaShieldAlt /> },
+        { name: "Windows Security", icon: <FaShieldAlt /> },
+        { name: "Network Security", icon: <GiNetworkBars /> },
+        { name: "Cloud Security", icon: <FaShieldAlt /> },
+        { name: "AWS Security", icon: <FaShieldAlt /> },
+        { name: "Microsoft Sentinel", icon: <FaShieldAlt /> },
+        { name: "Active Directory (ADDS)", icon: <FaShieldAlt /> },
+        { name: "Azure Security", icon: <FaShieldAlt /> },
+        { name: "Identity & Access Management (IAM)", icon: <FaShieldAlt /> },
+        { name: "Database Security & Queries", icon: <FaDatabase /> }
+      ],
+      governance: [
+        { name: "NIST RMF", icon: <FaShieldAlt /> },
+        { name: "ISO 27001", icon: <FaShieldAlt /> },
+        { name: "Risk Assessment", icon: <FaShieldAlt /> },
+        { name: "Audit & Compliance", icon: <FaShieldAlt /> },
+        { name: "Security Awareness Training", icon: <FaShieldAlt /> }
+      ]
+    },
     ai: [
-      { name: "AI Engineering", icon: <FaRobot /> },
-      { name: "Prompt Engineering", icon: <FaRobot /> },
-      { name: "RAG", icon: <FaRobot /> },
-      { name: "LLM Integration", icon: <FaRobot /> },
-      { name: "Graph Database", icon: <SiGraphql /> },
-      { name: "Reinforcement Learning", icon: <FaBrain /> },
+      { name: "AIOps", icon: <FaRobot /> },
+      { name: "AI Agents", icon: <FaRobot /> },
+      { name: "AI Vulnerabilities", icon: <FaRobot /> },
+      { name: "Vibe Programming", icon: <FaRobot /> },
     ],
+    marketing: {
+      visual_production: [
+        { name: "Photography", icon: <FaVideo /> },
+        { name: "Videography", icon: <FaVideo /> },
+        { name: "Video Editing", icon: <FaVideo /> },
+        { name: "Sound Engineering", icon: <FaVideo /> },
+        { name: "Streaming Services", icon: <FaVideo /> }
+      ],
+      design_ux: [
+        { name: "UX Design", icon: <FaPaintBrush /> },
+        { name: "Graphic Design", icon: <FaPaintBrush /> }
+      ],
+      digital_marketing: [
+        { name: "Email Campaigns", icon: <FaProjectDiagram /> },
+        { name: "Drip Marketing", icon: <FaProjectDiagram /> },
+        { name: "SEO (Search Engine Optimization)", icon: <FaProjectDiagram /> },
+        { name: "PPC (Pay-Per-Click Advertising)", icon: <FaProjectDiagram /> }
+      ]
+    },
   };
 
   const awards = [
@@ -225,21 +261,27 @@ function Skills() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills[activeCategory].map((skill, index) => (
-            <SkillCard
-              key={skill.name}
-              name={skill.name}
-              icon={skill.icon}
-              index={index}
-              barColor={getBarColor(activeCategory)}
-            />
-          ))}
-        </div>
+        {activeCategory === 'security' ? (
+          <SecurityTabs skills={skills.security} getBarColor={getBarColor} />
+        ) : activeCategory === 'marketing' ? (
+          <MarketingTabs skills={skills.marketing} getBarColor={getBarColor} />
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {skills[activeCategory].map((skill, index) => (
+              <SkillCard
+                key={skill.name}
+                name={skill.name}
+                icon={skill.icon}
+                index={index}
+                barColor={getBarColor(activeCategory)}
+              />
+            ))}
+          </div>
+        )}
 
         {/* Awards Section */}
-        <div className="mt-16">
-          <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
+        <div className="mt-32">
+        <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
             Awards & Achievements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -285,15 +327,15 @@ function SkillCard({ name, icon, index, barColor }) {
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
       transition={{ duration: 0.3 }}
-      className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between h-full"
+      className="group bg-white/5 backdrop-blur-sm p-4 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between h-full"
     >
       <div className="flex flex-col items-center text-center">
         <div
-          className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}
+          className={`text-3xl ${barColor.iconColor} mb-3 group-hover:scale-110 transition-transform duration-300`}
         >
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">
+        <h3 className="text-lg font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">
           {name}
         </h3>
       </div>
