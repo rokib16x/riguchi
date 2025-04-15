@@ -252,7 +252,7 @@ function Skills() {
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category)}
               aria-pressed={activeCategory === category}
-              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] focus:outline-none focus:ring-2 focus:ring-grey-500 ${
+              className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] ${
                 activeCategory === category
                   ? "bg-gradient-to-r from-[#FFD700] to-[#FF9400] text-gray-800"
                   : "bg-white/10 text-gray-200 hover:bg-white/20"

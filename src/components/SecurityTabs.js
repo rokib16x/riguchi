@@ -21,7 +21,7 @@ const SecurityTabs = ({ skills, getBarColor }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setActiveTab(tab.id)}
-            className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] focus:outline-none focus:ring-2 focus:ring-grey-500 ${activeTab === tab.id
+            className={`px-6 py-3 rounded-lg text-base md:text-lg font-semibold transition-all duration-300 font-['Inter'] focus:outline-none ${activeTab === tab.id
               ? 'bg-gradient-to-r from-[#FFD700] to-[#FF9400] text-gray-800'
               : 'bg-white/10 text-gray-200 hover:bg-white/20'
               }`}
