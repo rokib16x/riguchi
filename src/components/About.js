@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Diamond, Shield, Code, Users, Globe } from "lucide-react";
+import { Diamond, Shield, Code, Users, Globe, Swords } from "lucide-react";
 import { Link } from "react-scroll";
 import { colors } from "../styles/colors";
 
@@ -113,12 +113,12 @@ function About() {
               Software Engineer
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
             </Link>{" "}
-            with over a decade of experience bridging technical expertise and
-            business strategy. My journey began in 2010, experimenting with
-            no-code solutions before diving deep into software development. This
-            evolution has led me through roles spanning web development, IT
-            leadership, and product management, giving me a unique perspective
-            on building technology solutions.
+            with deep experience aligning engineering execution with business
+            outcomes. I’ve led projects across web and mobile development, IT
+            operations, and product strategy—often bridging the gap between
+            creative vision and technical delivery. My cross-functional
+            background enables me to architect secure, scalable solutions while
+            guiding teams through complex builds with clarity and intention.
           </p>
           <div className="h-2"></div> {/* Adds a 4rem (64px) vertical break */}
           {/* What I Specialize In */}
@@ -128,10 +128,10 @@ function About() {
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                "Technical Development: Full-stack engineering with Svelte, React, and Node.js",
-                "Infrastructure & Security: DevOps, cloud architecture, and information security (CISSP Candidate)",
-                "Project Leadership: Product lifecycle management and strategic planning",
-                "Agile Practices: Certified Scrum Master (PSM) and Product Owner (PSPO)",
+                "Agile Practices: Certified Scrum Master (PSM) and Certified Product Owner (PSPO)",
+                "Project Leadership: Team servant leadership, product lifecycle management and strategic project planning",
+                "Infrastructure & Security: Network security, information security (CISM Candidate)",
+                "Technical Development: Full-stack engineering with Svelte, React, and Node.js, DevSecOps",
               ].map((item, index) => (
                 <ListItem
                   key={index}
@@ -158,19 +158,19 @@ function About() {
               {[
                 {
                   icon: <Shield size={24} className="text-[#FF6B6B]" />,
-                  text: "I'm deeply passionate about cybersecurity.",
+                  text: "I'm deeply passionate about network security, IAM, and Application Security.",
                 },
                 {
-                  icon: <Code size={24} className="text-[#FF6B6B]" />,
-                  text: "I actively contribute to open-source projects.",
+                  icon: <Swords size={24} className="text-[#FF6B6B]" />,
+                  text: "I actively participate in CTFs and RvB events.",
                 },
                 {
                   icon: <Users size={24} className="text-[#FF6B6B]" />,
-                  text: "I enjoy mentoring the next generation of tech leaders.",
+                  text: "I enjoy mentoring my peer group and fellow students into the next generation of tech leaders.",
                 },
                 {
                   icon: <Globe size={24} className="text-[#FF6B6B]" />,
-                  text: "I explore global tech trends and innovations.",
+                  text: "I study global security tech trends and AI innovations.",
                 },
               ].map((item, index) => (
                 <ListItem
@@ -183,11 +183,31 @@ function About() {
             </ul>
           </div>
           {/* Current Focus */}
-          <p className="leading-relaxed text-center font-inter">
-            Currently, I'm focused on building innovative solutions in the
-            construction technology space, where I'm excited to tackle new
-            challenges that push the boundaries of what's possible.
-          </p>
+          <div className="text-center leading-relaxed font-inter space-y-4">
+            <p>
+              Currently, my focus is on developing secure full-stack web
+              application solutions within the construction technology sector.
+              Our deployment architecture is containerized using Docker,
+              allowing for consistent and isolated environments across
+              development and production.
+            </p>
+            <p>
+              To protect sensitive information, we're implementing secure secret
+              management practices—keeping credentials and API keys out of the
+              codebase and storing them in internally-positioned,
+              access-controlled environments. This limits exposure and aligns
+              with the principles of least privilege and defense in depth.
+            </p>
+            <p>
+              Additionally, the containerized approach enables warm standby
+              environments, allowing us to maintain redundancy and significantly
+              reduce failover recovery time to under five minutes. This setup
+              supports both operational resilience and business continuity,
+              while remaining compliant with key audit concerns like system
+              availability, secure configuration, and incident response
+              readiness.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

@@ -8,6 +8,12 @@ const resumes = [
     file: "/RYAN IGUCHI_Software_Engineer.pdf",
   },
   {
+    title: "Cybersecurity Analyst",
+    description:
+      "Specializing in cybersecurity and enterprise IT infrastructure",
+    file: "/RYAN IGUCHI_IT Support.pdf",
+  },
+  {
     title: "Product Manager",
     description: "Emphasis on product strategy and team leadership",
     file: "/RYAN IGUCHI_Product_Manager.pdf",

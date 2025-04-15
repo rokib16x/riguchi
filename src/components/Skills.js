@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react"
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
+import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import {
   FaReact,
   FaJs,
@@ -18,7 +18,7 @@ import {
   FaCode,
   FaPaintBrush,
   FaVideo,
-} from "react-icons/fa"
+} from "react-icons/fa";
 import {
   SiTypescript,
   SiSvelte,
@@ -29,31 +29,31 @@ import {
   SiJira,
   SiTrello,
   SiSlack,
-} from "react-icons/si"
-import { GiNetworkBars, GiSpy } from "react-icons/gi"
-import Lottie from "lottie-react"
+} from "react-icons/si";
+import { GiNetworkBars, GiSpy } from "react-icons/gi";
+import Lottie from "lottie-react";
 
 function Skills() {
-  const [activeCategory, setActiveCategory] = useState("management")
+  const [activeCategory, setActiveCategory] = useState("management");
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
-  const skillsRef = useRef(null)
+  });
+  const skillsRef = useRef(null);
 
   useEffect(() => {
-    const storedCategory = localStorage.getItem("activeSkillCategory")
+    const storedCategory = localStorage.getItem("activeSkillCategory");
     if (storedCategory) {
-      setActiveCategory(storedCategory)
+      setActiveCategory(storedCategory);
 
       if (skillsRef.current) {
         skillsRef.current.scrollIntoView({
           behavior: "smooth",
           block: "start",
-        })
+        });
       }
     }
-  }, [])
+  }, []);
 
   const skills = {
     management: [
@@ -105,24 +105,22 @@ function Skills() {
       { name: "Graph Database", icon: <SiGraphql /> },
       { name: "Reinforcement Learning", icon: <FaBrain /> },
     ],
-    creative: [
-      { name: "Design", icon: <FaPaintBrush /> },
-      { name: "Video Editing", icon: <FaVideo /> },
-    ],
-  }
+  };
 
   const awards = [
     {
       title: "KQL Puzzle Challenge",
       place: "2nd",
-      description: "Demonstrated exceptional skills in Kusto Query Language, competing against 20 participants.",
+      description:
+        "Demonstrated exceptional skills in Kusto Query Language, competing against 20 participants.",
     },
     {
       title: "AWS DeepRacer Contest",
       place: "2nd",
-      description: "Developed an advanced reinforcement learning model for autonomous racing.",
+      description:
+        "Developed an advanced reinforcement learning model for autonomous racing.",
     },
-  ]
+  ];
 
   const getBarColor = (category) => {
     switch (category) {
@@ -130,34 +128,29 @@ function Skills() {
         return {
           gradient: "from-[#FFD700] to-[#FF9400]",
           iconColor: "text-[#FFA500]",
-        }
+        };
       case "management":
         return {
           gradient: "from-[#FFD700] to-[#FF9400]",
           iconColor: "text-[#FFA500]",
-        }
+        };
       case "security":
         return {
           gradient: "from-[#FFD700] to-[#FF9400]",
           iconColor: "text-[#FFA500]",
-        }
+        };
       case "ai":
         return {
           gradient: "from-[#FFD700] to-[#FF9400]",
           iconColor: "text-[#FFA500]",
-        }
-      case "creative":
-        return {
-          gradient: "from-[#FFD700] to-[#FF9400]",
-          iconColor: "text-[#FFA500]",
-        }
+        };
       default:
         return {
           gradient: "from-[#FFD700] to-[#FF9400]",
           iconColor: "text-[#FFA500]",
-        }
+        };
     }
-  }
+  };
 
   return (
     <section ref={skillsRef} className="py-20 px-6 relative overflow-hidden">
@@ -173,11 +166,28 @@ function Skills() {
             <h2 className="text-5xl font-bold mb-6 text-center md:text-left bg-gradient-to-r from-[#FFD700] to-[#FF1493] bg-clip-text text-transparent font-['Space_Grotesk']">
               Skills & Expertise
             </h2>
-            <p className="text-lg text-gray-200 text-center md:text-left font-['Inter']">
-              With extensive generalist skills across the digital technical spectrum, I have deeper skills in project
-              management, technical mastery, and marketing/production technologies. I bring a unique blend of broad
-              technical expertise, competitive programming skills, and small team leadership.
-            </p>
+            <div className="text-lg text-gray-200 text-center md:text-left font-['Inter'] space-y-4">
+              <p>
+                I bring a unique blend of technical fluency, project leadership,
+                and cross-disciplinary insight. With a foundation in full-stack
+                and application development, I’ve built and secured web and
+                mobile applications, Docker containers, networks, and servers.
+              </p>
+              <p>
+                My experience spans product management, software engineering,
+                and information security assurance. I bridge the gap between
+                technical execution and creative vision—with strengths in UX
+                design, digital marketing, and leading agile teams from concept
+                to launch.
+              </p>
+              <p>
+                Whether starting new ventures or refining legacy systems, I
+                specialize in transforming digital complexity into clear,
+                actionable plans—so you can deliver with confidence. From
+                high-level architecture to fine-tuned implementation, I bring
+                clarity to every layer of the build.
+              </p>
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -185,7 +195,12 @@ function Skills() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="md:w-1/2 relative"
           >
-            <Lottie path="/Animation1.json" loop={true} autoplay={true} className="w-full max-w-md mx-auto" />
+            <Lottie
+              path="/Animation1.json"
+              loop={true}
+              autoplay={true}
+              className="w-full max-w-md mx-auto"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
           </motion.div>
         </div>
@@ -239,25 +254,29 @@ function Skills() {
                 <div className="flex items-center mb-4">
                   <div className="text-4xl text-yellow-400 mr-4">🏆</div>
                   <h3 className="text-2xl font-semibold bg-gradient-to-r from-[#FFD700] to-[#FF9400] bg-clip-text text-transparent font-['Space_Grotesk']">
-  {award.title}
-</h3>
+                    {award.title}
+                  </h3>
                 </div>
-                <p className="text-xl font-bold text-[#FFA500] mb-2">{award.place} Place</p>
-                {award.description && <p className="text-gray-300">{award.description}</p>}
+                <p className="text-xl font-bold text-[#FFA500] mb-2">
+                  {award.place} Place
+                </p>
+                {award.description && (
+                  <p className="text-gray-300">{award.description}</p>
+                )}
               </motion.div>
             ))}
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function SkillCard({ name, icon, index, barColor }) {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
-  })
+  });
 
   return (
     <motion.div
@@ -269,10 +288,14 @@ function SkillCard({ name, icon, index, barColor }) {
       className="group bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10 hover:border-pink-500/50 hover:bg-white/10 transition-all duration-300 flex flex-col justify-between h-full"
     >
       <div className="flex flex-col items-center text-center">
-        <div className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
+        <div
+          className={`text-5xl ${barColor.iconColor} mb-4 group-hover:scale-110 transition-transform duration-300`}
+        >
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">{name}</h3>
+        <h3 className="text-xl font-semibold text-gray-200 mb-2 font-['Space_Grotesk']">
+          {name}
+        </h3>
       </div>
       <div className="w-full bg-white/10 rounded-full h-2.5 overflow-hidden">
         <motion.div
@@ -283,8 +306,7 @@ function SkillCard({ name, icon, index, barColor }) {
         />
       </div>
     </motion.div>
-  )
+  );
 }
 
-export default Skills
-
+export default Skills;
