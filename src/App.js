@@ -37,8 +37,8 @@ function App() {
           className="min-h-screen relative font-sans"
         >
           <Helmet>
-            <title>Ryan Iguchi - Product Manager & Software Engineer</title>
-            <meta name="description" content="Portfolio of Ryan Iguchi, a Product Manager and Software Engineer with over a decade of experience in bridging technical expertise and business strategy." />
+            <title>Ryan Iguchi - Application Security Engineer</title>
+            <meta name="description" content="Portfolio of Ryan Iguchi, an Application Security Engineer with expertise in securing applications and implementing robust security measures." />
             <meta name="theme-color" content="#4077E3" />
             <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
           </Helmet>
@@ -61,4 +61,3 @@ function App() {
 }
 
 export default App;
-

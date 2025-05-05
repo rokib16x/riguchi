@@ -71,28 +71,7 @@ function About() {
               Ryan Iguchi
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
             </span>
-            , a{" "}
-            <Link
-              to="name_management"
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-100}
-              onClick={() => {
-                localStorage.setItem("activeSkillCategory", "management");
-              }}
-              className="font-bold text-xl md:text-2xl relative group transition-all duration-300 font-poppins cursor-pointer"
-              style={{
-                background: "linear-gradient(to right, #FFFFFF, #F5F5F5)",
-                WebkitBackgroundClip: "text",
-                backgroundClip: "text",
-                color: "transparent",
-              }}
-            >
-              Technical Product Manager
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
-            </Link>{" "}
-            and{" "}
+            , an{" "}
             <Link
               to="name_technical"
               smooth={true}
@@ -110,15 +89,10 @@ function About() {
                 color: "transparent",
               }}
             >
-              Software Engineer
+              Application Security Engineer
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[#FFD700] to-[#FF1493] group-hover:w-full transition-all duration-300" />
             </Link>{" "}
-            with deep experience aligning engineering execution with business
-            outcomes. I’ve led projects across web and mobile development, IT
-            operations, and product strategy—often bridging the gap between
-            creative vision and technical delivery. My cross-functional
-            background enables me to architect secure, scalable solutions while
-            guiding teams through complex builds with clarity and intention.
+            with deep experience in securing applications and implementing robust security measures. I've led security initiatives across web and mobile development, vulnerability assessments, and secure SDLC implementation—often bridging the gap between security requirements and technical delivery. My cross-functional background enables me to architect secure, scalable solutions while guiding teams through implementing security controls with clarity and intention.
           </p>
           <div className="h-2"></div> {/* Adds a 4rem (64px) vertical break */}
           {/* What I Specialize In */}
@@ -128,10 +102,10 @@ function About() {
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                "Agile Practices: Certified Scrum Master (PSM) and Certified Product Owner (PSPO)",
-                "Project Leadership: Team servant leadership, product lifecycle management and strategic project planning",
-                "Infrastructure & Security: Network security, information security (CISM Candidate)",
-                "Technical Development: Full-stack engineering with Svelte, React, and Node.js, DevSecOps",
+                "Application Security: SAST/DAST implementation, secure code review, and vulnerability management",
+                "Security Architecture: Designing secure systems, implementing security controls, and threat modeling",
+                "Infrastructure & Security: Network security, cloud security, and information security (CISM Candidate)",
+                "Technical Development: Secure coding practices, DevSecOps integration, and security automation",
               ].map((item, index) => (
                 <ListItem
                   key={index}

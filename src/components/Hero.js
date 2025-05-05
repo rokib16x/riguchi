@@ -43,7 +43,7 @@ function Hero() {
             className="text-2xl md:text-3xl font-medium mb-6 font-['Inter']"
             style={{ color: colors.text.secondary }}
           >
-            Product Manager & Software Engineer
+            Application Security Engineer
           </motion.h2>
           <motion.div
             initial={{ opacity: 0 }}
@@ -90,7 +90,7 @@ function Hero() {
             />
             <img
               src="/profile-image.webp"
-              alt={`${name} - Product Manager & Software Engineer`}
+              alt={`${name} - Application Security Engineer`}
               loading="lazy"
               onError={(e) => {
                 e.target.src = "/fallback-image.png";

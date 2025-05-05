@@ -62,7 +62,7 @@ const LoadingAnimation = () => {
                 className="text-2xl md:text-3xl font-medium mb-12"
                 style={{ color: colors.text.secondary }}
               >
-                Product Manager & Software Engineer
+                Application Security Engineer
               </motion.h2>
             </motion.div>
           )}
@@ -91,7 +91,7 @@ const LoadingAnimation = () => {
                 className="text-2xl md:text-3xl font-medium mb-12"
                 style={{ color: colors.text.secondary }}
               >
-                Product Manager & Software Engineer
+                Application Security Engineer
               </motion.h2>
             </motion.div>
           )}

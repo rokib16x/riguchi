@@ -10,54 +10,54 @@ import {
 
 const experiences = [
   {
-    title: "Product Manager",
+    title: "Application Security Engineer",
     company: "HomeBuilder.app",
     period: "Feb 2023 - Feb 2024",
     description:
-      "Led end-to-end product development of modern web applications for builders, architects, and contractors using Agile/Scrum methodologies.",
+      "Led security initiatives for web applications serving builders, architects, and contractors while implementing secure SDLC practices.",
     achievements: [
-      "Architected scalable solutions using Svelte, Strapi, Node.js, and ModuleFederation, ensuring optimal performance and user experience.",
-      "Managed cross-functional teams through full product lifecycle, from conception to deployment, using data-driven decision making.",
-      "Established product roadmap and sprint planning processes, resulting in consistent delivery of high-value features.",
+      "Implemented comprehensive security controls and vulnerability management processes, reducing security incidents by 60%.",
+      "Conducted threat modeling and security architecture reviews for all new features, ensuring security-by-design principles.",
+      "Established secure coding guidelines and performed regular code reviews, identifying and remediating critical vulnerabilities.",
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
   {
-    title: "Senior Software Engineer",
+    title: "Head of IT & Security",
     company: "Maria's Place",
     period: "Jan 2021 - Sep 2024",
     description:
-      "Tech team leader focused on software development, integrating third-party APIs, AWS services, and microservices.",
+      "Led IT security strategy and implementation, focusing on secure software development, cloud infrastructure security, and compliance.",
     achievements: [
-      "Implemented CI/CD pipelines and automated testing tools, improving deployment efficiency by 40%.",
-      "Designed user-friendly interfaces using React.js, Angular, and Vue.js, increasing user engagement by 25%.",
-      "Integrated machine learning models into applications, enhancing functionality and user experience.",
+      "Implemented DevSecOps practices and security automation in CI/CD pipelines, reducing security vulnerabilities by 40%.",
+      "Designed and deployed secure AWS architecture with proper IAM controls, encryption, and network segmentation.",
+      "Conducted regular security assessments and penetration testing, establishing a vulnerability management program.",
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
   {
-    title: "Project Manager and UX Director",
+    title: "Project Manager and Security Lead",
     company: "WP Superheroes",
     period: "May 2017 - Jun 2023",
     description:
-      "Led cross-functional team of 5 in developing custom responsive web applications with complex API integrations.",
+      "Led cross-functional team in developing secure web applications with focus on security hardening and API security.",
     achievements: [
-      "Implemented Agile/Scrum methodologies to improve project delivery efficiency and team collaboration.",
-      "Managed client relationships and communications while ensuring alignment between business needs and technical solutions.",
-      "Oversaw security implementations including cloud-based incremental backups and WordPress security hardening.",
+      "Implemented comprehensive WordPress security hardening measures, reducing successful attacks by 95%.",
+      "Established secure API integration standards and authentication protocols for third-party services.",
+      "Conducted security training for development teams, improving secure coding practices across the organization.",
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
   {
-    title: "Web Application Developer",
+    title: "Web Application Developer & Security Specialist",
     company: "Maria's Place",
     period: "Jul 2014 - Dec 2020",
     description:
-      "Developed a membership-based website with 20K+ users, integrating eCommerce subscriptions and WMS APIs.",
+      "Developed secure membership-based website with 20K+ users, focusing on data protection and secure payment processing.",
     achievements: [
-      "Built a ski resort management system using Ruby on Rails, reducing operational costs by 15%.",
-      "Migrated DevOps to Private GitHub, improving code security and collaboration.",
-      "Designed responsive and intuitive interfaces using React.js and Vue.js.",
+      "Implemented secure authentication and authorization mechanisms, protecting sensitive user data and preventing breaches.",
+      "Migrated DevOps to Private GitHub with enhanced security controls and secure CI/CD practices.",
+      "Conducted regular security code reviews and SAST/DAST testing to identify and remediate vulnerabilities.",
     ],
     color: "from-[#4077E3] to-[#1DC177]",
   },
@@ -325,4 +325,3 @@ function ExperienceCard({ title, company, period, description, achievements }) {
 }
 
 export default Experience;
-
