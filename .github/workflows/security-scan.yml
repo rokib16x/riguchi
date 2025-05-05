@@ -1,0 +1,60 @@
+name: Security Scan
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly on Sundays at midnight
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Run npm audit
+      run: npm audit --audit-level=high
+      
+    - name: OWASP Dependency Check
+      uses: dependency-check/Dependency-Check_Action@main
+      with:
+        project: 'Ryan-Iguchi'
+        path: '.'
+        format: 'HTML'
+        out: 'reports'
+        args: >
+          --suppression suppression.xml
+          --failOnCVSS 7
+          
+    - name: Upload dependency check report
+      uses: actions/upload-artifact@v3
+      with:
+        name: dependency-check-report
+        path: reports
+        
+    - name: Run ESLint security rules
+      run: |
+        npm install eslint @eslint/eslint-plugin-security
+        npx eslint --plugin security --ext .js,.jsx src/
+        
+    - name: Build application
+      run: npm run build
+      
+    - name: Run ZAP scan
+      uses: zaproxy/action-baseline@v0.9.0
+      with:
+        target: 'http://localhost:3000'
+        rules_file_name: 'zap-rules.tsv'
+        cmd_options: '-a'

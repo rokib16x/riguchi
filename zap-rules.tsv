@@ -1,0 +1,4 @@
+10020	IGNORE	X-Frame-Options Header
+10021	IGNORE	X-Content-Type-Options Header
+10035	IGNORE	Strict-Transport-Security Header
+90022	IGNORE	Application Error Disclosure
